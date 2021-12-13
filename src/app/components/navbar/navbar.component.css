@@ -1,0 +1,12 @@
+.navbar, .navbar-collapse {
+    background-color: teal;
+    color: white;
+}
+
+a {
+    font-weight: bold;
+}
+
+a:hover {
+    opacity: 0.5;
+}

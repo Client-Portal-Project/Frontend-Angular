@@ -1,0 +1,8 @@
+.jumbotron {
+    background-color: teal;
+    color: white;
+}
+
+.jumbotron > p {
+    font-size: 1.2rem;
+}
