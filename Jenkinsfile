@@ -11,10 +11,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'npm audit fix'
-                sh 'npm audit fix --force'
                 sh 'npm install'
-                sh 'npm update'
                 discordSend description: ":construction: *Updated Dependencies*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
             }
         }
