@@ -11,7 +11,10 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
+                sh 'npm audit fix'
+                sh 'npm audit fix --force'
                 sh 'npm install'
+                sh 'npm update'
                 discordSend description: ":construction: *Updated Dependencies*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
             }
         }
@@ -19,7 +22,7 @@ pipeline {
         stage('Compile Angular Files'){
             steps {
                 sh 'ng build --aot'
-                discordSend description: ":construction_site: *Built Production Model*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
+                discordSend description: ":construction_site: *Production Model Assembled*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
             }
         }
     }
