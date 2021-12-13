@@ -15,5 +15,12 @@ pipeline {
                 discordSend description: ":construction: *Updated Dependencies*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
             }
         }
+
+        stage('Compile Angular Files'){
+            steps {
+                sh 'ng build --aot'
+                discordSend description: ":construction_site: *Built Production Model*", result: currentBuild.currentResult, webhookURL: env.WEBHO_ANG
+            }
+        }
     }
 }
