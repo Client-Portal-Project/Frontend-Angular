@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div id="box">
+    <mat-card class="register">
+        <div>
+            <mat-card-header>
+                <!-- <h2 class="please-work">Please fill out form</h2> -->
+                <div class="title">
+                    <mat-card-title class="please-work">Individual Registration</mat-card-title>
+                </div>
+            </mat-card-header>
+        </div>
+        <div>
+            <mat-card-content>
+                <div>
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input matInput [(ngModel)]="userData.Firstname" type="text" name="First Name" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input matInput [(ngModel)]="userData.Lastname" type="text" name="Last Name" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input matInput [(ngModel)]="userData.Username" type="text" name="Username" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="userData.Email" type="email" name="Email" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput [(ngModel)]="userData.Password" type="password" name="Password" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Current Job Title</mat-label>
+                        <input matInput [(ngModel)]="userData.CurrentTitle" type="text" name="Current Job Title" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Field/Specialization</mat-label>
+                        <input matInput [(ngModel)]="userData.Field" type="text" name="Field/Specialization" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Years of Experience</mat-label>
+                        <input matInput [(ngModel)]="userData.Years" type="number" name="Years of Experience" required>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </div>  
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Get Hired!</button>
+        </mat-card-actions>  
+    </mat-card>
+</div>

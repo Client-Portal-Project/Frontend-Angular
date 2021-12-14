@@ -1,0 +1,24 @@
+.box {
+    padding: 20px;
+}
+
+.client-reqs {
+    background-color: rgb(121, 119, 119);
+}
+
+.title {
+    padding-bottom: 10px;
+}
+
+
+.skills {
+    padding-right: 10px;
+}
+
+.forms {
+    padding: 10px;
+}
+
+.submit {
+    padding: 5px;
+}

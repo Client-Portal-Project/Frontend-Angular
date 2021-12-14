@@ -14,6 +14,10 @@
     <div class="navbar-collapse py-2">    
         <a class="nav-link text-white" routerLink="">Home</a>
         <a class="nav-link text-white" routerLink="/about">About Us</a>
-        <a class="nav-link text-white" routerLink="/register">Register</a>
+        <a class="nav-link text-white" routerLink="/clientskills">Client Req's</a>
+        <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
+        <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>
+        <a *ngIf="_user == null" class="nav-link text-white" routerLink="/login">Log In</a>
+        <a *ngIf="_user != null" style="cursor: pointer;" class="nav-link text-white" (click)="logout()">Log Out</a>
     </div>
 </div>

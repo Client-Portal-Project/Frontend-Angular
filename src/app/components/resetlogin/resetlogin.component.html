@@ -1,0 +1,27 @@
+<!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5
+   CSS3,Bootstrap,Tailwind CSS which are 100% Mobile friendly. w3Hubs all Layouts are responsive
+   cross browser supported, best quality world class designs. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reset Password Form In Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="bg-white text-center p-5 mt-3 center">
+      <h3>Forgot Password </h3>
+      <p>Please enter your Email to reset your Password</p>
+      <form class="pb-3" action="#">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="userData.Email" name="Email" required>
+        </div>
+      </form>
+      <button mat-raised-button color="primary" (click)="resetlogin()">Reset Password</button>
+    </div>
+  </div>
+</body>
+</html>

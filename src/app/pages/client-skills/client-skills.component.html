@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="box">
+    <mat-card color="secondary" class="client-reqs">
+        <mat-card-title class="title">Client Requirements</mat-card-title>
+        <mat-card-content class="forms" [formGroup]="skillsForm">
+            <mat-label>Field of Interest</mat-label>
+            <br>
+            <!-- relating to the field of tech -->
+            <mat-form-field>
+                <mat-label for="field">Field</mat-label>
+                <input matInput id="field" type="text" formControlName="field" required>
+            </mat-form-field>
+            <br>
+            <mat-label>Tech Stack</mat-label>
+            <!-- relating to the tech stack -->
+            <div formGroupName="techStack">
+                <mat-form-field>
+                    <mat-label>Primary Language(s)</mat-label>
+                    <input matInput type="text" formControlName="languages" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Services</mat-label>
+                    <input matInput type="text" formControlName="services" required>
+                </mat-form-field>
+            </div>
+            <mat-label>Experience</mat-label>
+            <!-- relating to the clients desired interest -->
+            <div formGroupName="experience">
+                <mat-form-field>
+                    <mat-label>Years of Experience</mat-label>
+                    <input matInput type="number" formControlName="years" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Position</mat-label>
+                    <input matInput type="text" formControlName="position" required>
+                </mat-form-field>
+            </div>
+
+            <div formArrayName="skills">
+                <mat-form-field  class="skills" *ngFor="let skill of skills.controls; let i = index">
+                    <mat-label>Skill</mat-label>
+                    <input matInput type="text" placeholder="Country" [formControlName]="i" required>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="secondary" (click)="addSkill()">Add skill</button>
+            </div>    
+        </mat-card-content>
+        <mat-card-actions class="submit">
+            <button mat-raised-button (click)="showInfo()" color="primary">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

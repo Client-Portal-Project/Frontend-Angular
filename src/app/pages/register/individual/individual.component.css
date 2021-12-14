@@ -1,14 +1,17 @@
 .box {
     height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.please-work {
+.title {
     width: 100%;
     text-align: center;
 }
 
 .register {
+    /* display: inline-block; */
     text-align: center;
     margin-top: 2%;
     margin-right: 30%;
