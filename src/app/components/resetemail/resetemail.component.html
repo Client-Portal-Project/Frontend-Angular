@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Reset Email Form In Bootstrap</title>
+  <title>Reset Email</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -13,11 +13,30 @@
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="bg-white text-center p-5 mt-3 center">
-      <h3>Forgot Email </h3>
-      <p>Please enter an Email to reset your Username with</p>
+      <h3>Forgot Password </h3>
+      <p>Please enter your First Name, Last Name and Password to confirm your account, as well as the Email to change your Email to</p>
       <form class="pb-3" action="#">
         <div class="form-group">
           <input type="text" [(ngModel)]="userData.Email" name="Email" required>
+          <div *ngIf="_emailisEmpty" class="d-flex justify-content-center text-danger my-3">
+            Please fill out the field
+            above!
+          </div>
+          <input type="text" [(ngModel)]="userData.Firstname" name="First Name" required>
+          <div *ngIf="_firstisEmpty" class="d-flex justify-content-center text-danger my-3">
+            Please fill out the field
+            above!
+          </div>
+          <input type="text" [(ngModel)]="userData.Lastname" name="Last Name" required>
+          <div *ngIf="_lastisEmpty" class="d-flex justify-content-center text-danger my-3">
+            Please fill out the field
+            above!
+          </div>
+          <input type="text" [(ngModel)]="userData.Password" name="New Password" required>
+          <div *ngIf="_passwordisEmpty" class="d-flex justify-content-center text-danger my-3">
+            Please fill out the field
+            above!
+          </div>
         </div>
       </form>
       <button mat-raised-button color="primary" (click)="resetemail()">Reset Email</button>
