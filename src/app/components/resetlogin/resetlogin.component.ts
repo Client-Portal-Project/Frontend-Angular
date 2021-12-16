@@ -39,13 +39,7 @@ export class ResetloginComponent implements OnInit {
   //Or the email doesn't exist, in which case, we just say "We are sorry, we can't find your email"
   resetlogin(): void {
     //if email isn't empty
-    if (this.userData.Firstname == "") {
-      this._firstisEmpty = true;
-    }
-    else if (this.userData.Lastname == "") {
-      this._lastisEmpty = true;
-    }
-    else if (this.userData.Password == "") {
+    if (this.userData.Password == "") {
       this._passwordisEmpty = true;
     }
     else if (this.userData.Email == "") {

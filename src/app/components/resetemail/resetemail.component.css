@@ -1,12 +1,19 @@
-.navbar, .navbar-collapse {
-  background-color: teal;
-  color: white;
+.box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a {
-  font-weight: bold;
+.title {
+  width: 100%;
+  text-align: center;
 }
 
-  a:hover {
-    opacity: 0.5;
-  }
+.register {
+  /* display: inline-block; */
+  text-align: center;
+  margin-top: 2%;
+  margin-right: 30%;
+  margin-left: 30%;
+}

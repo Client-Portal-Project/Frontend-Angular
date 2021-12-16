@@ -1,46 +1,31 @@
-<!-- W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5
-   CSS3,Bootstrap,Tailwind CSS which are 100% Mobile friendly. w3Hubs all Layouts are responsive
-   cross browser supported, best quality world class designs. -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Reset Email</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-</head>
-<body>
-  <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="bg-white text-center p-5 mt-3 center">
-      <h3>Forgot Password </h3>
-      <p>Please enter your First Name, Last Name and Password to confirm your account, as well as the Email to change your Email to</p>
-      <form class="pb-3" action="#">
-        <div class="form-group">
-          <input type="text" [(ngModel)]="userData.Email" name="Email" required>
-          <div *ngIf="_emailisEmpty" class="d-flex justify-content-center text-danger my-3">
-            Please fill out the field
-            above!
-          </div>
-          <input type="text" [(ngModel)]="userData.Firstname" name="First Name" required>
-          <div *ngIf="_firstisEmpty" class="d-flex justify-content-center text-danger my-3">
-            Please fill out the field
-            above!
-          </div>
-          <input type="text" [(ngModel)]="userData.Lastname" name="Last Name" required>
-          <div *ngIf="_lastisEmpty" class="d-flex justify-content-center text-danger my-3">
-            Please fill out the field
-            above!
-          </div>
-          <input type="text" [(ngModel)]="userData.Password" name="New Password" required>
-          <div *ngIf="_passwordisEmpty" class="d-flex justify-content-center text-danger my-3">
-            Please fill out the field
-            above!
-          </div>
+<app-navbar></app-navbar>
+<div id="box">
+  <mat-card class="register">
+    <div>
+      <mat-card-header>
+        <div class="title">
+          <mat-card-title class="please-work">Please enter your new Email and the Password associated with the account</mat-card-title>
         </div>
-      </form>
-      <button mat-raised-button color="primary" (click)="resetemail()">Reset Email</button>
+      </mat-card-header>
     </div>
-  </div>
-</body>
-</html>
+    <div>
+      <mat-card-content>
+        <div>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="userData.Email" type="email" name="Email" required>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="userData.Password" type="password" name="Password" required>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </div>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="" (click)="resetemail()">Reset Email</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
