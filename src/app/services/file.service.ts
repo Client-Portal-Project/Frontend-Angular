@@ -22,4 +22,12 @@ export class FileService {
   }
 
 
+  getPDF(){
+    const httpOptions = {
+      'responseType': 'arraybuffer' as 'json'
+    };
+    return this.client.get<any>(this.url+"/files/4547d15e-6709-4d02-ab9a-2c4d2ae2f4ef", httpOptions)
+  }
+
+
 }
