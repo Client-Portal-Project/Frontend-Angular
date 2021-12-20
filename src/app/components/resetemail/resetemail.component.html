@@ -13,19 +13,47 @@
         <div>
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="userData.Email" type="email" name="Email" required>
+            <input matInput [(ngModel)]="userData.Email" type="email" required>
+            <div *ngIf="_emailisEmpty" class="d-flex justify-content-center text-danger my-3">
+              Please fill out the field
+              above!
+            </div>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput [(ngModel)]="userData.Password" type="password" name="Password" required>
+            <input matInput [(ngModel)]="userData.Password" required>
+            <div *ngIf="_passwordisEmpty" class="d-flex justify-content-center text-danger my-3">
+              Please fill out the field
+              above!
+            </div>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="userData.Firstname" required>
+            <div *ngIf="_firstisEmpty" class="d-flex justify-content-center text-danger my-3">
+              Please fill out the field
+              above!
+            </div>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="userData.Lastname" required>
+            <div *ngIf="_lastisEmpty" class="d-flex justify-content-center text-danger my-3">
+              Please fill out the field
+              above!
+            </div>
           </mat-form-field>
         </div>
       </mat-card-content>
     </div>
     <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="" (click)="resetemail()">Reset Email</button>
+      <button mat-raised-button color="primary" (click)="resetemail()">Reset Email</button>
     </mat-card-actions>
   </mat-card>
 </div>

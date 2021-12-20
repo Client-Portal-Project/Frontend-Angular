@@ -30,7 +30,13 @@ export class ResetemailComponent implements OnInit {
     //implemenation notes:
     //Needs a way to make sure that the person is who they say that they are so that anyone can't just reset anyone else's account
     //Given an email, send an email to reset the email and password already in the DB.
-    if (this.userData.Password == "") {
+    if (this.userData.Firstname == "") {
+      this._firstisEmpty = true;
+    }
+    else if (this.userData.Lastname == "") {
+      this._lastisEmpty = true;
+    }
+    else if (this.userData.Password == "") {
       this._passwordisEmpty = true;
     }
     else if (this.userData.Email == "") {
