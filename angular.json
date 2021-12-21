@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
+    "analytics": "9b6914d0-0f44-4598-9903-8a921355d981",
     "cache": {
       "enabled": false
     }

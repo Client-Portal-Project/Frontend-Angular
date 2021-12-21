@@ -1,23 +1,35 @@
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <div class="h4">
+        <div class=" h4">
             Employee Hiring Tool
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarToggleExternalContent">
+            <div class="navbar-nav">
+                <a class="nav-link text-white h6" routerLink="">Home</a>
+                <a class="nav-link text-white h6" routerLink="/about">About Us</a>
+                <a class="nav-link text-white h6" routerLink="/clientskills">Client Req's</a>
+                <a class="nav-link text-white h6" routerLink="/resetemail">Forgot Email</a>
+                <a class="nav-link text-white h6" routerLink="/resetlogin">Forgot Password</a>
+            </div>
+            <div class="d-flex" *ngIf="_user == null">
+                <button class="btn btn-secondary h6" routerLink="/register">Sign Up</button>
+                <button class="btn btn-secondary h6" routerLink="/login">Login</button>
+            </div>
+            <div class="d-flex" *ngIf="_user != null">
+                <button class="btn btn-secondary h6" routerLink="/">User Profile</button>
+                <button style="cursor: pointer;" class="btn btn-secondary" (click)="logout()">Logout</button>
+            </div>
+        </div>
+
     </div>
 </nav>
-<div class="collapse" id="navbarToggleExternalContent">
-    <div class="navbar-collapse py-2">    
-        <a class="nav-link text-white" routerLink="">Home</a>
-        <a class="nav-link text-white" routerLink="/about">About Us</a>
-        <a class="nav-link text-white" routerLink="/clientskills">Client Req's</a>
-        <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
-        <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>
-        <a *ngIf="_user == null" class="nav-link text-white" routerLink="/login">Log In</a>
-        <a *ngIf="_user != null" style="cursor: pointer;" class="nav-link text-white" (click)="logout()">Log Out</a>
-    </div>
+<div class="jumbotron p-3">
+    <div class="display-3 font-weight-normal">Welcome!</div>
+    <p>Introducing the Employee Hiring Tool</p>
+    <hr>
+    <p>Start browsing our open selection!</p>
+    <a class="btn btn-secondary" routerLink="/">Learn More</a>
 </div>

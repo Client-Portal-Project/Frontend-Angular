@@ -1,7 +1,42 @@
-<app-navbar></app-navbar>
-<div class="jumbotron p-3">
-    <div class="display-3 font-weight-normal">Welcome!</div>
-    <p>Introducing the Employee Hiring Tool</p>
-    <hr>
-    <p>Start browsing our open selection!</p>
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">Companies</h2>
+                    <p class="card-text">Engineers, as practitioners of engineering, are professionals who invent,
+                        design, analyze, build, and test machines, complex systems, structures, gadgets, and materials
+                        to fulfil funtional objectives and requirements while considering the limitations imposed by
+                        practicality, regulation, safety, and cost.</p>
+                    <a class="btn btn-secondary" [routerLink]="['/']">Browse Companies</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">Occupations</h2>
+                    <p class="card-text">A health professional (or healthcare professional) may provide health care
+                        treatment and advice based on formal training and experience. The field includes those who work
+                        as a medical doctor (such as a family physician, internist, obstetrician, psychiatrist.</p>
+                    <a class="btn btn-secondary" [routerLink]="['/']">Browse Occupations</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">About Us</h2>
+                    <p class="card-text">Engineers, as practitioners of engineering, are professionals who invent,
+                        design, analyze, build, and test machines, complex systems, structures, gadgets, and materials
+                        to fulfil funtional objectives and requirements while considering the limitations imposed by
+                        practicality, regulation, safety, and cost.</p>
+                    <a class="btn btn-secondary" [routerLink]="['/about']">Visit About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
