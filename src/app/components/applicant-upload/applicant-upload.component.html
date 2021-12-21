@@ -1,1 +1,13 @@
-<p>applicant-upload works!</p>
+
+<div class="card mt-5 ms-5" style="width: 300px;">
+  <h3 class="card-title text-center">Upload Resume</h3>
+  <form class="d-flex align-items-center">
+    <input type="file" class="file-upload" (change)="getFile($event)" onchange="console.log(event.target.files)">
+    <br>
+    <br>
+    <button class="btn btn-primary " (click)="uploadFile()">Upload</button>
+  </form>
+</div>
+<div class="">
+  <h4 *ngIf="filename !== undefined">{{filename}}</h4>
+</div>
