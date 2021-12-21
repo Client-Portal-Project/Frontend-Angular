@@ -24,6 +24,7 @@ import { ClientSkillsComponent } from './pages/client-skills/client-skills.compo
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
+import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
     ClientSkillsComponent,
     ResetemailComponent,
     FileuploaderComponent,
-    FileViewerComponent
+    FileViewerComponent,
+    ApplicantUploadComponent
     
   ],
   imports: [
