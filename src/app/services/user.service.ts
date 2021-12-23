@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/login`, {
       email: email,
       password: password
-    });
+    }, {observe: "response"});
   }
 
   editUser(user: any): Observable<any> {
@@ -29,9 +29,5 @@ export class UserService {
   logout() {
     sessionStorage.clear();
     this.router.navigateByUrl('');
-  }
-
-  setHeaders(): void {
-    this.utilService.setHeaders();
   }
 }
