@@ -4,11 +4,11 @@
         <div class="row">
             <h2 class="col-12 fw-bolder text-center my-3">User Login</h2>
             <div class="offset-1 col-10 d-flex flex-column my-3">
-                <input [ngClass]="{'border border-danger': _isEmpty}" class="form-control" type="text"
+                <input [ngClass]="{'border border-danger': _isEmpty && _email == ''}" class="form-control" type="text"
                     placeholder="Email" [(ngModel)]='_email' name="email">
             </div>
             <div class="offset-1 col-10 d-flex flex-column my-3">
-                <input [ngClass]="{'border border-danger': _isEmpty}" class="form-control" type="password"
+                <input [ngClass]="{'border border-danger': _isEmpty && _password == ''}" class="form-control" type="password"
                     placeholder="Password" [(ngModel)]='_password' name="password">
             </div>
             <div *ngIf="_isEmpty" class="d-flex justify-content-center text-danger my-3">Please fill out the fields
