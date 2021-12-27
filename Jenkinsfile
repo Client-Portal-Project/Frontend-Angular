@@ -17,10 +17,11 @@ pipeline {
     stages {
         stage('Static Analysis') {
             environment {
-                    SCAN = tool 'sonarcloud'
+                SCAN = tool 'sonarcloud'
             }
             steps {
                 script {
+                    CURR = 'Static Analysis'
                     CMD = 'sonarcloud'
                 }
                 withSonarQubeEnv('sonarserve') {
