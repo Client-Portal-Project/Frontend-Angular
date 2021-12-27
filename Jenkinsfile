@@ -16,10 +16,10 @@ pipeline {
 
     stages {
         stage('Static Analysis') {
-            steps {
-                environment {
+            environment {
                     SCAN = tool 'sonarcloud'
-                }
+            }
+            steps {
                 script {
                     CMD = 'sonarcloud'
                 }
