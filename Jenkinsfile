@@ -17,9 +17,11 @@ pipeline {
     stages {
         stage('Static Analysis') {
             steps {
+                environment {
+                    SCAN = tool 'sonarcloud'
+                }
                 script {
                     CMD = 'sonarcloud'
-                    def SCAN = tool CMD
                 }
                 withSonarQubeEnv('sonarserve') {
                     sh "${SCAN}/bin/sonar-scanner"
