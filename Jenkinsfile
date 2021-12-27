@@ -16,13 +16,13 @@ pipeline {
 
     stages {
         stage('Static Analysis') {
-            script {
-                CMD = ''
-            }
             environment {
                 SCAN = tool 'sonarcloud'
             }
             steps {
+                script {
+                    CMD = 'sonarcloud'
+                }
                 withSonarQubeEnv('sonarserve') {
                     echo "${SCAN}"
                 }
