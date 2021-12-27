@@ -10,9 +10,22 @@ pipeline {
         disableConcurrentBuilds()
     }
 
-    tools { nodejs "node"}
+    tools { 
+        nodejs "node"
+    }
 
     stages {
+        stage('Static Analysis') {
+            environment {
+                SCAN = tool 'sonarcloud'
+            }
+            steps {
+                withSonarQubeEnv('sonarserve') {
+                    echo "test"
+                }
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
