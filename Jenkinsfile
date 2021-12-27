@@ -16,14 +16,17 @@ pipeline {
 
     stages {
         stage('Static Analysis') {
+            script {
+                CMD = ''
+            }
             environment {
                 SCAN = tool 'sonarcloud'
             }
             steps {
                 withSonarQubeEnv('sonarserve') {
-                    echo "${SCAN}/bin/sonar-scanner"
+                    echo "${SCAN}"
                 }
-                timeout(time: 1, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
