@@ -21,7 +21,10 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonarserve') {
-                    echo "test"
+                    echo "${SCAN}/bin/sonar-scanner"
+                }
+                timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
