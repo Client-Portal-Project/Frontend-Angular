@@ -30,7 +30,7 @@ pipeline {
 
         stage('Compile Angular Files'){
             steps {
-                discordSend description ":warning: **Entering Angular Build Stage. Please Standby...**", webhookURL: WEBHO_JA
+                discordSend description: ":warning: **Entering Angular Build Stage. Please Standby...**", webhookURL: env.WEBHO_JA
                 script {
                     CURR = "Build"
                     CMD = 'ng build --aot > result'
