@@ -24,14 +24,15 @@ pipeline {
             steps {
                 script {
                     CURR = 'Static Analysis'
-                    CMD = 'sonarcloud'
+                    CMD = '$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME > result'
                 }
                 withSonarQubeEnv('sonarserve') {
-                    sh "${SCAN}/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME"
+                    sh(script: CMD)
                 }
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
+                discordSend description: ":unlock: Passed Static Analysis of ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
             }
         }
 
@@ -69,6 +70,8 @@ pipeline {
     post {
         always {
             sh 'cat result'
+            ERR = readFile('result').trim()
+            CMD = CMD.split(' > ')[0].trim()
         }
         failure {
             discordSend title: "**:boom: ${env.JOB_NAME} Failure in ${CURR} Stage**",
