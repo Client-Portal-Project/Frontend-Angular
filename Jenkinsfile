@@ -18,7 +18,7 @@ pipeline {
         stage('Static Analysis') {
             environment {
                 SCAN = tool 'sonarcloud'
-                ORG = "Project X"
+                ORG = "client-portal-project"
                 NAME = "Frontend-Angular"
             }
             steps {
