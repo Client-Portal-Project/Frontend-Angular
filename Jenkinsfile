@@ -25,15 +25,15 @@ pipeline {
                 script {
                     CURR = 'Static Analysis'
                     CMD = '''$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG \
-                            -Dsonar.projectKey=$NAME -Dsonar.sources=./src/'''
+                            -Dsonar.projectKey=$NAME -Dsonar.sources=./src/ \
+                            -Dsonar.sourceEncoding=UTF-8'''
                 }
                 withSonarQubeEnv('sonarserve') {
                     sh(script: CMD)
                 }
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
-                        ERR = waitForQualityGate()
-                        sh "echo ${ERR}"
+                        writeFile(file: 'results', text: waitForQualityGate abortPipeline: true)
                     }
                 }
                 discordSend description: ":unlock: Passed Static Analysis of ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
