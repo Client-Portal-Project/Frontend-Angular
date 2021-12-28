@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-client-skills',
   templateUrl: './client-skills.component.html',
   styleUrls: ['./client-skills.component.css']
 })
-export class ClientSkillsComponent implements OnInit {
+export class ClientSkillsComponent {
 
   skillsForm = this.fb.group({
     field: [''],
@@ -39,11 +39,4 @@ export class ClientSkillsComponent implements OnInit {
   constructor(
     private fb: FormBuilder
   ) { }
-
-  ngOnInit(): void {
-  
-  
-  }
-
-
 }

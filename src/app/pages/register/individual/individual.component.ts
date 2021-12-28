@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -7,16 +7,13 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './individual.component.html',
   styleUrls: ['./individual.component.css']
 })
-export class IndividualComponent implements OnInit {
+export class IndividualComponent {
 
   user: any = {};
   
   @Input() userData = {Firstname: '', Lastname: '', Username: '', Email: '', Password: '', Field: '', Years: '', CurrentTitle: '' };
 
   constructor(private userService: UserService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   registerUser(): void {
     console.log(this.userData);

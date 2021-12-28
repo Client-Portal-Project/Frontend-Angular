@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { UtilService } from 'src/app/services/util.service';
@@ -8,7 +8,7 @@ import { UtilService } from 'src/app/services/util.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   _email: string = '';
   _password: string = '';
@@ -17,9 +17,6 @@ export class LoginComponent implements OnInit {
   _isEmpty: boolean = false;
 
   constructor(private utilService: UtilService, private userService: UserService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   login(email: string, password: string) {
     // Email and passwords fields are entered

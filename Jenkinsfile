@@ -35,7 +35,7 @@ pipeline {
                     script{
                         ERR = waitForQualityGate()
                         if (ERR != 'OK') {
-                            writeFile(file: 'result', text: "${ERR.status}")
+                            writeFile(file: 'result', text: "${ERR.conditions}")
                             error('Quality Gate Failed')
                         }
                     }
