@@ -61,7 +61,7 @@ pipeline {
 
         stage('Compile Angular Files'){
             steps {
-                discordSend description: ":warning: **Entering Angular Build Stage. Please Standby...**", webhookURL: env.WEBHO_JA
+                discordSend description: ":warning: **Entering Angular Build Stage. Please Standby...**", unstable: true, webhookURL: env.WEBHO_JA
                 script {
                     CURR = "Build"
                     CMD = 'ng build --aot > result'
@@ -78,7 +78,6 @@ pipeline {
     post {
         always {
             script {
-                sh 'cat result'
                 CMD = CMD.split(' > ')[0].trim()
             }
             
@@ -89,6 +88,9 @@ pipeline {
                         footer: "Follow title URL for full console output",
                         link: env.BUILD_URL + "console", image: 'https://jenkins.io/images/logos/fire/256.png',
                         result: currentBuild.currentResult, webhookURL: WEBHO_JA
+        }
+        success {
+            cleanWs()
         }
     }
 } 
