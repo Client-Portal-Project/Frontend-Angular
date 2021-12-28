@@ -33,7 +33,11 @@ pipeline {
                 }
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
-                        ERR = waitForQualityGate abortPipeline: true
+                        ERR = waitForQualityGate()
+                        if (ERR != 'OK') {
+                            writeFile(file: 'result', text: ERR)
+                            error('Quality Gate Failed')
+                        }
                     }
                 }
                 discordSend description: ":unlock: Passed Static Analysis of ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
@@ -85,9 +89,6 @@ pipeline {
                         footer: "Follow title URL for full console output",
                         link: env.BUILD_URL + "console", image: 'https://jenkins.io/images/logos/fire/256.png',
                         result: currentBuild.currentResult, webhookURL: WEBHO_JA
-        }
-        cleanup {
-            cleanWs()
         }
     }
 } 
