@@ -33,7 +33,7 @@ pipeline {
                 }
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
-                        writeFile(file: 'results', text: waitForQualityGate abortPipeline: true)
+                        writeFile(file: 'results', text: (waitForQualityGate abortPipeline: true))
                     }
                 }
                 discordSend description: ":unlock: Passed Static Analysis of ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
