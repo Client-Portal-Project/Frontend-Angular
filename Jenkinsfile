@@ -31,7 +31,7 @@ pipeline {
                 }
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
-                        ERR = waitForQualityGate abortPipeline: true, credentialsId: 'SonarCloud'
+                        ERR = waitForQualityGate credentialsId: env.SONAR_TOKEN
                         writeFile(file: 'result', text: ERR)
                         sh "echo ${ERR}"
                     }
