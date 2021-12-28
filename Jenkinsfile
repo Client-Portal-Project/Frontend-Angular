@@ -30,7 +30,7 @@ pipeline {
                     sh(script: CMD)
                 }
                 timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
+                    writeFile(file: 'result', text: waitForQualityGate abortPipeline: true credentialsId: 'SonarCloud')
                 }
                 discordSend description: ":unlock: Passed Static Analysis of ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
             }
