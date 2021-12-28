@@ -24,14 +24,14 @@ pipeline {
             steps {
                 script {
                     CURR = 'Static Analysis'
-                    CMD = "$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME -Dsonar.sources=./src"
+                    CMD = "$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME -Dsonar.sources=./src -Dsonar.login=$SONAR_TOKEN"
                 }
                 withSonarQubeEnv('sonarserve') {
                     sh(script: CMD)
                 }
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
-                        ERR = waitForQualityGate credentialsId: env.SONAR_TOKEN
+                        ERR = waitForQualityGate()
                         writeFile(file: 'result', text: ERR)
                         sh "echo ${ERR}"
                     }
