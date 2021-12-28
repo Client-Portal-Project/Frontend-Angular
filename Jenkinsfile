@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     CURR = 'Static Analysis'
-                    CMD = "$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME > result"
+                    CMD = "$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME"
                 }
                 withSonarQubeEnv('sonarserve') {
                     sh(script: CMD)
