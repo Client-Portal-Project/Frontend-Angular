@@ -71,7 +71,7 @@ pipeline {
         always {
             script {
                 sh 'cat result'
-                ERR = readJSON(text: readFile('result').trim())
+                ERR = readFile('result').trim()
                 CMD = CMD.split(' > ')[0].trim()
             }
             
