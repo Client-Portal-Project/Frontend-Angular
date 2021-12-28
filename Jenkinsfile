@@ -69,9 +69,12 @@ pipeline {
     }
     post {
         always {
-            sh 'cat result'
-            ERR = readFile('result').trim()
-            CMD = CMD.split(' > ')[0].trim()
+            script {
+                sh 'cat result'
+                ERR = readFile('result').trim()
+                CMD = CMD.split(' > ')[0].trim()
+            }
+            
         }
         failure {
             discordSend title: "**:boom: ${env.JOB_NAME} Failure in ${CURR} Stage**",
