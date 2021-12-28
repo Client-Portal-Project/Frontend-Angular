@@ -18,6 +18,8 @@ pipeline {
         stage('Static Analysis') {
             environment {
                 SCAN = tool 'sonarcloud'
+                ORG = "Project X"
+                NAME = "Frontend-Angular"
             }
             steps {
                 script {
@@ -25,7 +27,7 @@ pipeline {
                     CMD = 'sonarcloud'
                 }
                 withSonarQubeEnv('sonarserve') {
-                    sh "${SCAN}/bin/sonar-scanner"
+                    sh "${SCAN}/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
