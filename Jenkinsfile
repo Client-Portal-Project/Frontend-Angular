@@ -24,7 +24,8 @@ pipeline {
             steps {
                 script {
                     CURR = 'Static Analysis'
-                    CMD = "$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG -Dsonar.projectKey=$NAME -Dsonar.sources=./src -Dsonar.login=$SONAR_TOKEN"
+                    CMD = '''$SCAN/bin/sonar-scanner -Dsonar.organization=$ORG /
+                            -Dsonar.projectKey=$NAME -Dsonar.sources=./src/'''
                 }
                 withSonarQubeEnv('sonarserve') {
                     sh(script: CMD)
@@ -32,7 +33,6 @@ pipeline {
                 timeout(time: 5, unit: 'MINUTES') {
                     script{
                         ERR = waitForQualityGate()
-                        writeFile(file: 'result', text: ERR)
                         sh "echo ${ERR}"
                     }
                 }
@@ -86,6 +86,9 @@ pipeline {
                         footer: "Follow title URL for full console output",
                         link: env.BUILD_URL + "console", image: 'https://jenkins.io/images/logos/fire/256.png',
                         result: currentBuild.currentResult, webhookURL: WEBHO_JA
+        }
+        cleanup {
+            cleanWs()
         }
     }
 } 
