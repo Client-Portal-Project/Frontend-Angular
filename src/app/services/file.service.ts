@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ResponeMessage } from '../classes/ResponseMessage';
+import { ResponseMessage } from '../classes/ResponseMessage';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,11 @@ export class FileService {
 
   constructor(private client: HttpClient) { }
 
-  uploadFile(file: File): Observable<ResponeMessage> {
+  uploadFile(file: File): Observable<ResponseMessage> {
     const formData = new FormData();
     formData.append("file", file);
     let message: string = "";
-    return this.client.post<ResponeMessage>(this.url + "/upload", formData);
+    return this.client.post<ResponseMessage>(this.url + "/upload", formData);
 
   }
 
