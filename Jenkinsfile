@@ -20,6 +20,7 @@ pipeline {
                 SCAN = tool 'sonarcloud'
                 ORG = "client-portal-project"
                 NAME = "Frontend-Angular"
+                DOCKERHUB_CREDENTIALS = credentials('clientportalx-dockerhub')
             }
             steps {
                 script {
@@ -74,12 +75,38 @@ pipeline {
                 discordSend description: ":construction_site: Built Production Model for ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
             }
         }
+        
+        stage("Docker Build"){
+            steps {
+                sh """
+                docker build -t clientportalx/angular-frontend:latest .
+                """
+                discordSend description: ":whale2: Built Docker Image for ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
+            }
+        }
+
+        stage("Login to Docker Hub"){
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                discordSend description: ":key: Successfully logged into Dockerhub for ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
+            }
+        }
+
+        stage('Push to Docker Hub'){
+            steps {
+                sh 'docker push clientportalx/angular-frontend:latest'
+                discordSend description: ":whale: Pushed Docker Image to Dockerhub for ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
+            }
+        }
+
+
     }
     post {
         always {
             script {
                 CMD = CMD.split(' > ')[0].trim()
             }
+            sh 'docker logout'
             
         }
         failure {
