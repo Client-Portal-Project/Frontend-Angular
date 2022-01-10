@@ -13,14 +13,17 @@ pipeline {
     tools { 
         nodejs "node"
     }
-
+  
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('clientportalx-dockerhub')
+    }
+  
     stages {
         stage('Static Analysis') {
             environment {
                 SCAN = tool 'sonarcloud'
                 ORG = "client-portal-project"
                 NAME = "Frontend-Angular"
-                DOCKERHUB_CREDENTIALS = credentials('clientportalx-dockerhub')
             }
             steps {
                 script {
