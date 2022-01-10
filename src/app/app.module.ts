@@ -52,7 +52,9 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-x603agta.us.auth0.com',
-      clientId: 'EtbHWvvwV1G2mXtA7OOg3BkVbmXcSYh4'
+      clientId: 'EtbHWvvwV1G2mXtA7OOg3BkVbmXcSYh4',
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true
     }),
    
   ],
