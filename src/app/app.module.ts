@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AuthModule } from '@auth0/auth0-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +49,11 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-x603agta.us.auth0.com',
+      clientId: 'EtbHWvvwV1G2mXtA7OOg3BkVbmXcSYh4'
+    }),
    
   ],
   providers: [UtilService],
