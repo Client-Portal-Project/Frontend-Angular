@@ -22,7 +22,7 @@ import { IndividualComponent } from './components/register/individual/individual
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
-import { FileviewerComponent } from './components/fileviewer/fileviewer.component';
+import { FileViewerComponent } from 'src/app/components/fileviewer/fileviewer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { FileviewerComponent } from './components/fileviewer/fileviewer.componen
     ClientSkillsComponent,
     ResetemailComponent,
     FileuploaderComponent,
-    FileviewerComponent
+    FileViewerComponent
     
   ],
   imports: [
