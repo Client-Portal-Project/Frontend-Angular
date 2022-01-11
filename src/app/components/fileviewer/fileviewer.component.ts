@@ -3,8 +3,8 @@ import { FileService } from 'src/app/services/fileservice.service';
 
 @Component({
   selector: 'app-file-viewer',
-  templateUrl: './file-viewer.component.html',
-  styleUrls: ['./file-viewer.component.css']
+  templateUrl: './fileviewer.component.html',
+  styleUrls: ['./fileviewer.component.css']
 })
 export class FileViewerComponent implements OnInit {
 
