@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FileService } from 'src/app/services/fileservice.service';
+
 
 @Component({
   selector: 'app-fileuploader',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileuploaderComponent implements OnInit {
 
-  constructor() { }
+
+  file!: File;
+
+  filename!: string;
+  constructor(private fileService: FileService) { }
 
   ngOnInit(): void {
   }
+
+  getFile(event: Event): void {
+    this.file = (event.target as HTMLInputElement).files![0];
+    this.filename = this.file.name;
+  }
+
+  uploadFile() {
+    if (this.file !== undefined) {
+      this.fileService.uploadFile(this.file).subscribe(data => alert(data), err => console.log(err))
+    } else {
+      alert("No file has been selected")
+    }
+  }
+
+
 
 }
