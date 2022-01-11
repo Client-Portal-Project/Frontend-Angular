@@ -21,6 +21,8 @@ import { CompanyComponent } from './components/register/company/company.componen
 import { IndividualComponent } from './components/register/individual/individual.component';
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
+import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
+import { FileviewerComponent } from './components/fileviewer/fileviewer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     CompanyComponent,
     IndividualComponent,
     ClientSkillsComponent,
-    ResetemailComponent
+    ResetemailComponent,
+    FileuploaderComponent,
+    FileviewerComponent
     
   ],
   imports: [
