@@ -53,8 +53,8 @@ import { Auth0LoginComponent } from './components/auth0login/auth0login.componen
     MatDialogModule,
     ReactiveFormsModule,
     AuthModule.forRoot({
-      domain: 'dev-x603agta.us.auth0.com',
-      clientId: 'EtbHWvvwV1G2mXtA7OOg3BkVbmXcSYh4',
+      domain: 'dev-0ocf6tyd.us.auth0.com',
+      clientId: '6i8GqUJ23MVwdfCzg9VwZtAGrx8wtVxu',
       cacheLocation: 'localstorage',
       useRefreshTokens: true
     }),

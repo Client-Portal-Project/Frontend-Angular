@@ -21,4 +21,5 @@ export class Auth0LoginComponent implements OnInit {
   { 
     this.auth0.loginWithRedirect();
   }
+  
 }
