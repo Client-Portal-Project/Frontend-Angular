@@ -22,6 +22,7 @@ import { CompanyComponent } from './components/register/company/company.componen
 import { IndividualComponent } from './components/register/individual/individual.component';
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
+import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     CompanyComponent,
     IndividualComponent,
     ClientSkillsComponent,
-    ResetemailComponent
+    ResetemailComponent,
+    Auth0LoginComponent
     
   ],
   imports: [
