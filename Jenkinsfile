@@ -79,11 +79,13 @@ pipeline {
             }
         }
         
-        stage("Docker Build"){
+        stage("Docker Image Build"){
             steps {
-                sh """
-                docker build -t clientportalx/angular-frontend:latest .
-                """
+                script {
+                  CURR = "Docker Image"
+                  CMD = "docker build -t clientportalx/angular-frontend:latest . > result"
+                }
+                sh (script: CMD)
                 discordSend description: ":whale2: Built Docker Image for ${env.JOB_NAME}", result: currentBuild.currentResult, webhookURL: env.WEBHO_JA
             }
         }
@@ -110,7 +112,6 @@ pipeline {
                 CMD = CMD.split(' > ')[0].trim()
             }
             sh 'docker logout'
-            
         }
         failure {
             discordSend title: "**:boom: ${env.JOB_NAME} Failure in ${CURR} Stage**",
