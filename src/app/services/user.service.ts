@@ -11,6 +11,10 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private utilService: UtilService, private router: Router) { }
 
+  verifyUser(email: string | undefined): Observable<any> {
+    return this.httpClient.get<any>(`${this.utilService.getServerDomain()}/clientportal/api/user/${email}`);
+  }
+
   createUser(user: any): Observable<any> {
     return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/user`, user);
   }
