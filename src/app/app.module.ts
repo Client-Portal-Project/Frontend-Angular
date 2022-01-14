@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AuthModule } from '@auth0/auth0-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { CompanyComponent } from './components/register/company/company.componen
 import { IndividualComponent } from './components/register/individual/individual.component';
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
+import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     CompanyComponent,
     IndividualComponent,
     ClientSkillsComponent,
-    ResetemailComponent
+    ResetemailComponent,
+    Auth0LoginComponent
     
   ],
   imports: [
@@ -48,7 +51,13 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-0ocf6tyd.us.auth0.com',
+      clientId: '6i8GqUJ23MVwdfCzg9VwZtAGrx8wtVxu',
+      cacheLocation: 'localstorage',
+      useRefreshTokens: true
+    }),
    
   ],
   providers: [UtilService],
