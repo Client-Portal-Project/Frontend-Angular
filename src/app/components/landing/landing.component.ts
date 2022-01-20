@@ -12,6 +12,7 @@ export class LandingComponent {
     this.auth0.user$.subscribe(user =>
       { 
         console.log(user);
+        
         //Check if user.email is in database if not route to Signup
         
       });
