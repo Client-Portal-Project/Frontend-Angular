@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/login`, {
       email: email,
       password: password
-    });
+    }, {observe: "response"});
   }
 
   editUser(user: any): Observable<any> {
@@ -29,9 +29,5 @@ export class UserService {
   logout() {
     sessionStorage.clear();
     this.router.navigateByUrl('');
-  }
-
-  setHeaders(): void {
-    this.utilService.setHeaders();
   }
 }

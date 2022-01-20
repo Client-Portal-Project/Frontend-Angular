@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   _email: string = '';
   _password: string = '';
@@ -15,10 +16,7 @@ export class LoginComponent implements OnInit {
   _isCredentialsIncorrect: boolean = false;
   _isEmpty: boolean = false;
 
-  constructor(private userService: UserService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private utilService: UtilService, private userService: UserService, private router: Router) { }
 
   login(email: string, password: string) {
     // Email and passwords fields are entered
@@ -26,26 +24,30 @@ export class LoginComponent implements OnInit {
       this._isEmpty = false;
       this.userService.login(email, password).subscribe(response => {
         this.resetFields();
-        // Successful login
-        if (response.success) {
-          sessionStorage.setItem('user', JSON.stringify(response.data));
-          sessionStorage.setItem('JWT', response.message);
-          this.userService.setHeaders();
-          this._isCredentialsCorrect = true;
-          this._isCredentialsIncorrect = false;
-        } 
-        // Incorrect email or password
-        if (!response.success) {
+        // Successful login, token and userId will be stored in sessionStorage
+        this.utilService.storeSession(response.body.userId, 
+          response.headers.get("authorization"));
+        this._isCredentialsCorrect = true;
+        this._isCredentialsIncorrect = false; 
+        
+        if(response == null) {
           this._isCredentialsCorrect = false;
           this._isCredentialsIncorrect = true;
-        } 
+        }
+
         // With correct credentials, the page will "load" to the next page in one second
         if (this._isCredentialsCorrect) {
           setTimeout(() => {
             this.router.navigateByUrl('');
           }, 1000);
         }
+
       })
+      
+      // Incorrect email or password
+      this._isCredentialsCorrect = false;
+      this._isCredentialsIncorrect = true;
+      
     } 
     // Email or password fields are empty
     else {

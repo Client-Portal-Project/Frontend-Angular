@@ -9,9 +9,7 @@ export class UtilService {
   private _serverDomain: string = "http://localhost:3000";
 
   jwt: any = sessionStorage.getItem('JWT');
-  headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*').set('authorization', this.jwt);
-
-  constructor() { }
+  headers = new HttpHeaders().set('content-type', 'application/json').set('authorization', this.jwt);
 
   public getServerDomain() {
     return this._serverDomain;
@@ -19,6 +17,12 @@ export class UtilService {
 
   public setHeaders(): void {
     this.jwt = sessionStorage.getItem('JWT');
-    this.headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*').set('authorization', this.jwt);
+    this.headers = new HttpHeaders().set('content-type', 'application/json').set('authorization', this.jwt);
+  }
+
+  storeSession(userId: number, token: string): void {
+    sessionStorage.setItem('JWT', token);
+    sessionStorage.setItem('user', JSON.stringify(userId));
+    this.setHeaders();
   }
 }
