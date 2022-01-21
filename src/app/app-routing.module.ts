@@ -9,6 +9,9 @@ import { CompanyComponent } from './components/register/company/company.componen
 import { IndividualComponent } from './components/register/individual/individual.component';
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
+import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
+import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
+import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -18,8 +21,11 @@ const routes: Routes = [
   { path: 'clientskills', component: ClientSkillsComponent },
   { path: 'resetlogin', component: ResetloginComponent },
   { path: 'resetemail', component: ResetemailComponent },
+  { path: 'applicantdocs', component: ApplicantUploadComponent },
   { path: 'register/company', component: CompanyComponent },
-  { path: 'register/individual', component: IndividualComponent }
+  { path: 'register/individual', component: IndividualComponent },
+  {path: "upload", component: FileuploaderComponent},
+  {path: "fileView", component: FileViewerComponent}
 ];
 
 @NgModule({

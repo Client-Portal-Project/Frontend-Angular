@@ -23,7 +23,8 @@ import { IndividualComponent } from './components/register/individual/individual
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
 import { ResetemailComponent } from './components/resetemail/resetemail.component';
 import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
-
+import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
+import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,8 +38,9 @@ import { Auth0LoginComponent } from './components/auth0login/auth0login.componen
     IndividualComponent,
     ClientSkillsComponent,
     ResetemailComponent,
-    Auth0LoginComponent
-    
+    Auth0LoginComponent,
+    FileViewerComponent,
+    FileuploaderComponent
   ],
   imports: [
     BrowserModule,
