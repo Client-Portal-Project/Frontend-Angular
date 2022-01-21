@@ -1,5 +1,18 @@
 # Frontend-Angular
 
+<br />
+<p align="center">
+<img alt="Sonar Cloud" src="https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg" />
+</p>
+<p align="center">
+<img alt="Quality Gate" src="https://sonarcloud.io/api/project_badges/measure?project=Frontend-Angular&metric=alert_status" />
+<img alt="Security" src="https://sonarcloud.io/api/project_badges/measure?project=Frontend-Angular&metric=security_rating" />
+<br/>
+<img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=Frontend-Angular&metric=bugs" />
+<img alt="Line of Code" src="https://sonarcloud.io/api/project_badges/measure?project=Frontend-Angular&metric=ncloc" />
+<img alt="Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=Frontend-Angular&metric=vulnerabilities" />
+</p>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
 ## Development server
