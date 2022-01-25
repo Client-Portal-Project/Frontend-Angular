@@ -1,7 +1,7 @@
 import { AuthService } from '@auth0/auth0-angular';
 import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth0login',
@@ -15,6 +15,7 @@ export class Auth0LoginComponent implements OnInit {
     public router:Router) {}
 
   ngOnInit(): void {
+    //this is intentional
   }
   
   auth0login()
