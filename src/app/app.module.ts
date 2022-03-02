@@ -25,7 +25,7 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
 import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
-import { FrontpageComponent } from './components/frontpage/frontpage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,8 +41,7 @@ import { FrontpageComponent } from './components/frontpage/frontpage.component';
     ResetemailComponent,
     Auth0LoginComponent,
     FileViewerComponent,
-    FileuploaderComponent,
-    FrontpageComponent
+    FileuploaderComponent
   ],
   imports: [
     BrowserModule,
