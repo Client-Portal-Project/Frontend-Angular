@@ -1,36 +1,39 @@
-.jumbotron {
-    background-color: teal;
-    color: white;
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+button {
+    transform: translateY(100%);
 }
 
-.jumbotron > p {
-    font-size: 1.2rem;
+h1, h2 {
+    color: white;
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    text-align: center;
 }
-.intro-header {
-    height: unset !important;
+
+h1 {
+    font-size: 6rem;
+    margin-top: 30vh;
+    margin-bottom: 10vh; 
 }
-.top-nav-collapse {
-    background-color: #7d8488 !important;
+.row{
+    padding-top: 20vh;
 }
-.view {
-    height: 100vh !important;
-}
-.navbar:not(.top-nav-collapse) {
-    background: transparent !important;
-}
-@media (max-width: 768px) {
-    .navbar:not(.top-nav-collapse) {
-        background: #7d8488 !important;
-    }
-}
-.rgba-gradient .full-bg-img {
-    background: linear-gradient(45deg, rgba(242, 34, 50, 0.5), rgba(255, 187, 54, 0.6) 100%);
-}
-@media (max-width: 740px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 700px;
-    }
-}
+.column {
+    float: left;
+    width: 33.33%;
+  }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
