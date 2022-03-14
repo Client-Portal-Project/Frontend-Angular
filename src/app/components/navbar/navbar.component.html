@@ -3,11 +3,14 @@
         <div class="h4">
             Employee Hiring Tool
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span>
+            <app-auth0login></app-auth0login>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </span>
     </div>
 </nav>
 <div class="collapse" id="navbarToggleExternalContent">
@@ -15,11 +18,10 @@
         <a class="nav-link text-white" routerLink="">Home</a>
         <a class="nav-link text-white" routerLink="/about">About Us</a>
         <a class="nav-link text-white" routerLink="/clientskills">Client Req's</a>
-        <app-auth0login></app-auth0login>
-        <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
+        <!-- <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
         <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>
         <a *ngIf="_user != null" class="nav-link text-white" routerLink="/applicantdocs">Applicant Document Upload</a>
         <a *ngIf="_user == null" class="nav-link text-white" routerLink="/login">Log In</a>
-        <a *ngIf="_user != null" style="cursor: pointer;" class="nav-link text-white" (click)="logout()">Log Out</a>
+        <a *ngIf="_user != null" style="cursor: pointer;" class="nav-link text-white" (click)="logout()">Log Out</a> -->
     </div>
 </div>

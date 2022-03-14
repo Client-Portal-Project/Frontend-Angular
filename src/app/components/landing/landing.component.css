@@ -1,8 +1,34 @@
-.jumbotron {
-    background-color: teal;
-    color: white;
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+button {
+    transform: translateY(100%);
 }
 
-.jumbotron > p {
-    font-size: 1.2rem;
+h1, h2 {
+    color: white;
+    font-family: Trebuchet MS;
+    font-weight: bold;
+    text-align: center;
+}
+h1 {
+    font-size: 6rem;
+    margin-top: 30vh;
+    margin-bottom: 10vh; 
+}
+
+.row{
+    padding-top: 20vh;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }

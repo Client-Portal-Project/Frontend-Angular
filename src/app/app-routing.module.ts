@@ -12,6 +12,8 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
 import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: 'register/company', component: CompanyComponent },
   { path: 'register/individual', component: IndividualComponent },
   {path: "upload", component: FileuploaderComponent},
-  {path: "fileView", component: FileViewerComponent}
+  {path: "fileView", component: FileViewerComponent},
+  {path: "profile", component: ProfileFormComponent},
+  {path: "auth0login", component: Auth0LoginComponent}
 ];
 
 @NgModule({
