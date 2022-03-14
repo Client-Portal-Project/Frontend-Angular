@@ -7,19 +7,19 @@
 </video>
   
 
-<h1>
-    Here you can find the best <br> <br> <br> 
-    of what you want
-    <br>
-    <br>
-    <br>
-    <app-auth0login></app-auth0login>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+<h1 class="text-center">
+    Here you can find the best <br><br><br><br>
+    <app-auth0login></app-auth0login> <br>
+    <ng-container *ngIf="auth0.isAuthenticated$ | async">
+      <button class="btn btn-info" onclick="location.href = '/register';">
+          Register
+      </button>
+    </ng-container>
+
 </h1>
+
+
 
 <main>
 
