@@ -6,10 +6,17 @@
 </video>
   
 
-<h1>
-    Here you can find the best <br>
-    <button class="btn btn-lg btn-primary" type="button">Login</button>
+<h1 class="text-center">
+    Here you can find the best <br><br><br><br>
+    <app-auth0login></app-auth0login> <br>
+    <ng-container *ngIf="auth0.isAuthenticated$ | async">
+      <button class="btn btn-info" onclick="location.href = '/register';">
+          Register
+      </button>
+    </ng-container>
 </h1>
+
+
 
 <main>
     <div class="row">
