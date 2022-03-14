@@ -18,22 +18,17 @@ h1, h2 {
     font-weight: bold;
     text-align: center;
 }
-
 h1 {
     font-size: 6rem;
     margin-top: 30vh;
     margin-bottom: 10vh; 
 }
+
 .row{
     padding-top: 20vh;
 }
-.column {
-    float: left;
-    width: 33.33%;
-  }
-
 .row:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
