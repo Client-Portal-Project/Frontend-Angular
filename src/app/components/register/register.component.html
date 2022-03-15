@@ -1,16 +1,16 @@
-<app-navbar></app-navbar>
-<div id="box">
-    <mat-card class="register">
-        <div>
-            <mat-card-header>
-                <div class="please-work">
-                    <mat-card-title class="please-work">Registration</mat-card-title>
-                </div>
-            </mat-card-header>
-        </div>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/register/company">Company</button>
-            <button mat-raised-button color="primary" (click)="registerUser()" routerLink="/register/individual">Individual</button>
-        </mat-card-actions>  
-    </mat-card>
+<div class="container">
+
+    <a href="register/company">
+    <section class="screen left">
+     <h1>I want to hire</h1>
+        <a class="button">Register</a>
+     </section>
+    </a>
+
+    <a href="register/individual">
+     <section class="screen right">
+        <h1>I want to be hired</h1>
+            <a class="button">Register</a>
+      </section>
+    </a>
 </div>

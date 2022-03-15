@@ -1,16 +1,76 @@
-.box {
-    height: 100vh;
-    display: flex;
+h1 {
+  font-size: 5rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Playfair Display', serif;
 }
-
-.please-work {
-    width: 100%;
-    text-align: center;
+.container {
+  width: 100%;
+  height: 100%;
 }
-
-.register {
-    text-align: center;
-    margin-top: 2%;
-    margin-right: 30%;
-    margin-left: 30%;
+.container .screen {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+}
+.button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2.6rem;
+  padding-top: .6rem;
+  width: 15rem;
+  text-align: center;
+  color: white;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+  transition: all 0.2s;
+}
+.screen.left {
+  left: 0;
+  background: url('https://i.insider.com/51643ba7eab8ea0538000003?width=800&format=jpeg&auto=webp') center center no-repeat;
+  background-size: cover;
+}
+.screen.left::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 136, 156, 0.7);
+}
+.screen.right {
+  right: 0;
+  background: url('https://preview.ibb.co/cpabRm/pexels_photo_450212_1.jpg') center center no-repeat;
+  background-size: cover;
+}
+.screen.right::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(169, 140, 227, 0.7);
+}
+.screen.left, .screen.right, .screen.right::before, .screen.left::before {
+  transition: all 1s ease-in-out;
+}
+.screen.left:hover, .screen.right:hover {
+  width: 55%;
+  z-index: 1;
+}
+.screen.left:hover::before{
+  background-color:rgba(247, 136, 156, 0.3);
+}
+.screen.right:hover::before {
+  background-color:rgba(169, 140, 227, 0.3);
 }
