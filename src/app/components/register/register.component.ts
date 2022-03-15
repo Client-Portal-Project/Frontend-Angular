@@ -7,10 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class RegisterComponent {
 
-  @Input() userData = {Firstname: '', Lastname: '', Username: '', Email: '', Password: '' };
-
-  registerUser(): void {
-    console.log(this.userData);
-  }
-
 }
