@@ -1,23 +1,22 @@
+
 <nav class="navbar navbar-light">
     <div class="container-fluid">
-        <div class="h4">
-            Employee Hiring Tool
+        <a class="h3 nav-link text-white" routerLink="">
+            Project X
+        </a>
+        <div class="menu-btn" (click)="toggleMenu()">
+            <div class="menu-btn__burger"></div>
         </div>
-        <span>
-            <app-auth0login></app-auth0login>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </span>
     </div>
 </nav>
-<div class="collapse" id="navbarToggleExternalContent">
-    <div class="navbar-collapse py-2">    
-        <a class="nav-link text-white" routerLink="">Home</a>
-        <a class="nav-link text-white" routerLink="/about">About Us</a>
-        <a class="nav-link text-white" routerLink="/clientskills">Client Req's</a>
+
+<div class="collapse">
+    <div class="navbar-collapse">    
+        <a class="nav-link text-white text-center" routerLink="">Home</a>
+        <a class="nav-link text-white text-center" routerLink="/about">About Us</a>
+        <a class="nav-link text-white text-center" routerLink="/clientskills">Client Req's</a>
+        <app-auth0login></app-auth0login>
+        <br>        
         <!-- <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
         <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>
         <a *ngIf="_user != null" class="nav-link text-white" routerLink="/applicantdocs">Applicant Document Upload</a>

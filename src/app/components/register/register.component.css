@@ -35,7 +35,11 @@ h1 {
   text-transform: uppercase;
   text-decoration: none;
   transform: translateX(-50%);
-  transition: all 0.2s;
+  transition: all 0.5s;
+}
+.button:hover {
+  background: rgba(255, 255, 255, 0.945);
+  color: rgb(12, 12, 12);
 }
 .screen.left {
   left: 0;
@@ -67,6 +71,7 @@ h1 {
 .screen.left:hover, .screen.right:hover {
   width: 55%;
   z-index: 1;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 .screen.left:hover::before{
   background-color:rgba(247, 136, 156, 0.3);

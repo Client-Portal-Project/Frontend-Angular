@@ -8,10 +8,6 @@ video {
     z-index: -1;
   }
 
-button {
-    transform: translateY(100%);
-}
-
 h1, h2 {
     color: white;
     font-family: Trebuchet MS;

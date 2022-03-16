@@ -1,69 +1,19 @@
-<app-navbar></app-navbar>
+
+<ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">
+      <app-register></app-register>
+</ng-container>
+<ng-template #loggedOut>
 
 <!-- The video -->
 <video autoplay muted loop id="myVideo">
-    <source src="../../../assets/videos/LandingPageVideo.mp4" type="video/mp4">
-    <source src="../../../assets/videos/LandingPageVideo.webm" type="video/webm">
+<!-- <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"> -->
+<source src="../../../assets/videos/LandingPageVideo.mp4" type="video/mp4">
+<source src="../../../assets/videos/LandingPageVideo.webm" type="video/webm">
 </video>
   
-
-
 <h1 class="text-center">
-    Here you can find the best <br><br><br><br>
-    <app-auth0login></app-auth0login> <br>
-    <ng-container *ngIf="auth0.isAuthenticated$ | async">
-      <button class="btn btn-info" onclick="location.href = '/register';">
-          Register
-      </button>
-    </ng-container>
-
+  Here you can find the best <br><br><br><br>
+  <app-auth0login></app-auth0login> <br>
 </h1>
 
-
-
-<main>
-
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="../../../assets/images/MaskLogo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="../../../assets/images/MaskLogo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="../../../assets/images/MaskLogo.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</main>
+</ng-template>
