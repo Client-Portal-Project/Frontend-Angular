@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-light">
     <div class="container-fluid">
         <a class="h3 nav-link text-white" routerLink="">
@@ -8,12 +9,18 @@
         </div>
     </div>
 </nav>
+
 <div class="collapse">
     <div class="navbar-collapse">    
         <a class="nav-link text-white text-center" routerLink="">Home</a>
         <a class="nav-link text-white text-center" routerLink="/about">About Us</a>
         <a class="nav-link text-white text-center" routerLink="/clientskills">Client Req's</a>
         <app-auth0login></app-auth0login>
-        <br>
+        <br>        
+        <!-- <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
+        <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>
+        <a *ngIf="_user != null" class="nav-link text-white" routerLink="/applicantdocs">Applicant Document Upload</a>
+        <a *ngIf="_user == null" class="nav-link text-white" routerLink="/login">Log In</a>
+        <a *ngIf="_user != null" style="cursor: pointer;" class="nav-link text-white" (click)="logout()">Log Out</a> -->
     </div>
 </div>
