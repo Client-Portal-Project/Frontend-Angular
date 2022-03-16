@@ -8,10 +8,6 @@ video {
     z-index: -1;
   }
 
-button {
-    transform: translateY(100%);
-}
-
 h1, h2 {
     color: white;
     font-family: Trebuchet MS;
@@ -24,16 +20,3 @@ h1 {
     margin-top: 30vh;
     margin-bottom: 10vh; 
 }
-.row{
-    padding-top: 20vh;
-}
-.column {
-    float: left;
-    width: 33.33%;
-  }
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }

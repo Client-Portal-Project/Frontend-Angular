@@ -1,48 +1,18 @@
+<ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">
+      <app-register></app-register>
+</ng-container>
+<ng-template #loggedOut>
+
 <!-- The video -->
 <video autoplay muted loop id="myVideo">
-    <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
-    <!-- <source src="../../../assets/videos/LandingPageVideo.mp4" type="video/mp4">
-    <source src="../../../assets/videos/LandingPageVideo.webm" type="video/webm"> -->
+<!-- <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"> -->
+<source src="../../../assets/videos/LandingPageVideo.mp4" type="video/mp4">
+<source src="../../../assets/videos/LandingPageVideo.webm" type="video/webm">
 </video>
   
-
 <h1 class="text-center">
-    Here you can find the best <br><br><br><br>
-    <app-auth0login></app-auth0login> <br>
-    <ng-container *ngIf="auth0.isAuthenticated$ | async">
-      <button class="btn btn-info" onclick="location.href = '/register';">
-          Register
-      </button>
-    </ng-container>
+  Here you can find the best <br><br><br><br>
+  <app-auth0login></app-auth0login> <br>
 </h1>
 
-
-
-<main>
-    <div class="row">
-            <div class="column card text-white bg-secondary mb-3">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                <img src="../../../assets/images/MaskLogo.png" alt="logo" width="100" height="100">
-                  <h4 class="card-title">Secondary card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-            <div class="column card text-white bg-secondary mb-3">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                <img src="../../../assets/images/MaskLogo.png" alt="logo" width="100" height="100">
-                  <h4 class="card-title">Secondary card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-            <div class="column card text-white bg-secondary mb-3">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                <img src="../../../assets/images/MaskLogo.png" alt="logo" width="100" height="100">
-                  <h4 class="card-title">Secondary card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-    </div>
-</main>
+</ng-template>

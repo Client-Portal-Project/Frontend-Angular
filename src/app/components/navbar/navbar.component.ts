@@ -8,16 +8,26 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  _user: any = {};
+  menuBtn: any;
+  menuShown: any;
+  menuOpen = false;
+  constructor(private userservice: UserService) { 
 
-  constructor(private userservice: UserService) { }
-
+  }
   ngOnInit(): void {
-    this._user = sessionStorage.getItem('user');
+    this.menuBtn = document.querySelector('.menu-btn');
+    this.menuShown = document.querySelector('.collapse');
   }
 
-  logout(): void {
-    this.userservice.logout();
-    this._user = null;
+  toggleMenu() {
+    if(this.menuOpen) {
+      this.menuBtn!.classList.remove('open');
+      this.menuShown!.classList.remove('show');
+    } else {
+      this.menuBtn!.classList.add('open');
+      this.menuShown!.classList.add('show');
+    }
+    this.menuOpen = !this.menuOpen;
   }
+
 }
