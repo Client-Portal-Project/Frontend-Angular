@@ -1,6 +1,9 @@
-
+.navbar{
+    height: 70px;
+    margin-bottom: -70px;
+}
 .navbar, .navbar-collapse {
-    background-color: rgba(7, 12, 160, 0.861);
+    background-color: rgba(0, 0, 0, 0.638);
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     z-index: 5;
@@ -11,8 +14,10 @@
     right: 0;
     transition: all 0.5s;
     border-radius: 2px;
+    margin-top: 71px
 
 }
+
 a{
     font-weight: bold;
     opacity: .8;
@@ -20,7 +25,7 @@ a{
 }
 a:hover{
     opacity: 1;
-    text-shadow: 0 2px 5px rgba(95, 37, 14, 0.426);
+    text-shadow: 0 2px 5px rgba(75, 75, 75, 0.426);
 }
 
 

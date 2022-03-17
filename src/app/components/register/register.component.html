@@ -1,22 +1,21 @@
 <div class="container">
+
     <a (click)="leftClick()">
     <section class="screen left">
+        <br><br><br><br><br><br>
         <ng-container *ngIf="clicked==1; else cclick">
             <app-company></app-company>
         </ng-container>
         <ng-template #cclick>
-            
-            
             <h1>I want to hire</h1>
                 <a class="button">Register</a>
-            
-            
         </ng-template>
     </section>
     </a>
 
     <a (click)="rightClick()">
     <section class="screen right">
+        <br><br><br><br><br><br>
         <ng-container *ngIf="clicked==2; else iclick">
             <app-individual></app-individual>
         </ng-container>
