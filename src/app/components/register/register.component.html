@@ -1,17 +1,31 @@
 <div class="container">
-
-    <a href="register/company">
+    <a (click)="leftClick()">
     <section class="screen left">
-     <h1>I want to hire</h1>
-        <a class="button">Register</a>
-     </section>
+        <ng-container *ngIf="clicked==1; else cclick">
+            <app-company></app-company>
+        </ng-container>
+        <ng-template #cclick>
+            
+            
+            <h1>I want to hire</h1>
+                <a class="button">Register</a>
+            
+            
+        </ng-template>
+    </section>
     </a>
 
-    <a href="register/individual">
-     <section class="screen right">
-        <h1>I want to be hired</h1>
-            <a class="button">Register</a>
-      </section>
+    <a (click)="rightClick()">
+    <section class="screen right">
+        <ng-container *ngIf="clicked==2; else iclick">
+            <app-individual></app-individual>
+        </ng-container>
+        <ng-template #iclick>
+                <h1>I want to be hired</h1>
+                    <a class="button">Register</a>
+        </ng-template>
+    </section>
     </a>
-    
+
 </div>
+

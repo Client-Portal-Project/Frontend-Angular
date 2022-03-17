@@ -3,7 +3,7 @@
         <div>
             <mat-card-header>
                 <div class="title">
-                    <mat-card-title>Company Registration</mat-card-title>
+                    <mat-card-title>Recruiter Registration</mat-card-title>
                 </div>
             </mat-card-header>
         </div>
@@ -14,11 +14,15 @@
                         <mat-label>First Name</mat-label>
                         <input matInput [(ngModel)]="userData.Firstname" type="text" name="First Name" required>
                     </mat-form-field>
-                </div>
-                <div>
                     <mat-form-field>
                         <mat-label>Last Name</mat-label>
                         <input matInput [(ngModel)]="userData.Lastname" type="text" name="Last Name" required>
+                    </mat-form-field>
+                </div> 
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="userData.Email"  type="email" name="Email" required>
                     </mat-form-field>
                 </div>
                 <div>
@@ -39,22 +43,11 @@
                         <input matInput [(ngModel)]="userData.Job_Title"  type="email" name="Job Title" required>
                     </mat-form-field>
                 </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Email</mat-label>
-                        <input matInput [(ngModel)]="userData.Email"  type="email" name="Email" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Password</mat-label>
-                        <input matInput  [(ngModel)]="userData.Password"  type="password" name="Password" required>
-                    </mat-form-field>
-                </div>
+               
             </mat-card-content>
         </div>
         <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Register your Company</button>
+            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Get Hiring!</button>
         </mat-card-actions>   
     </mat-card>
 </div>

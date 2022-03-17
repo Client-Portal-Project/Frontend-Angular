@@ -1,5 +1,6 @@
 h1 {
   font-size: 5rem;
+  cursor: pointer;
   color: #fff;
   position: absolute;
   left: 50%;
@@ -22,6 +23,7 @@ h1 {
 .button {
   display: block;
   position: absolute;
+  cursor: pointer;
   left: 50%;
   top: 50%;
   height: 2.6rem;
@@ -78,4 +80,9 @@ h1 {
 }
 .screen.right:hover::before {
   background-color:rgba(169, 140, 227, 0.3);
+}
+.screen.right.clicked, .screen.left.clicked{
+  width: 80%;
+  z-index: 2;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
