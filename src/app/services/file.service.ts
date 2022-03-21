@@ -9,7 +9,7 @@ import { ResponeMessage } from '../classes/ResponseMessage';
 })
 export class FileService {
 
-  url = "http://localhost:3000/clientportal/api"
+  url = "http://localhost:8080/clientportal/api"
 
   constructor(private client: HttpClient) { }
 
