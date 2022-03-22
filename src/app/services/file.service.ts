@@ -18,10 +18,8 @@ export class FileService {
     formData.append("file",file);
     let message: string = "";
     return this.client.post<ResponeMessage>(this.url+"/upload", formData);
-
   }
-
-
+  
   getPDF(){
     const httpOptions = {
       'responseType': 'arraybuffer' as 'json'

@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { User } from '../../../classes/user';
 
 @Component({
   selector: 'app-individual',
@@ -9,42 +10,36 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class IndividualComponent {
 
-  user: any = {};
+
+  model = new User('', '', '');
+
+  constructor(private userService: UserService) { }
   
-  @Input() userData = {Firstname: '', Lastname: '', Username: '', Email: '', Password: '', Field: '', Years: '', CurrentTitle: '' };
 
-  constructor(private userService: UserService, private router: Router) { }
-
-  registerUser(): void {
-    console.log(this.userData);
-    this.user.email = this.userData.Email;
-    this.user.password = this.userData.Password;
-
-    this.userService.editUser(this.user).subscribe(response => {
-      if (response.success) {
-        alert(response.message);
-        this.router.navigateByUrl('/login');
-      } else {
-        // alert maybe changed to something else
-        alert(response.message);
+  onSubmit(): void {
+    this.userService.editUser(this.model).subscribe(
+      data => {
+        console.log(data);
       }
-    })
-  }
-
-  // For registration page
-  editUser(): void {
-    this.user.email = this.userData.Email;
-    this.user.password = this.userData.Password;
-
-    this.userService.editUser(this.user).subscribe(response => {
-      if (response.success) {
-        this.user = response.data;
-        sessionStorage.setItem('user', JSON.stringify(this.user));
-      } else {
-        // alert maybe changed to something else
-        alert(response.message);
-      }
-    })
+    );
   }
 
 }
+
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-individual',
+//   template: `
+//     <input [(ngModel)]="name" #it="ngModel" required>
+//     <p>Value: {{ name }}</p>
+//     <p>Valid: {{ it.valid }}</p>
+//     <button (click)="setValue()">Set value</button>
+//   `,
+//   styleUrls: ['./individual.component.css']
+// })
+
+// export class AppComponent {
+//   name = '';
+//   setValue() { this.name = 'Millie Bobby Brown'; }
+// }

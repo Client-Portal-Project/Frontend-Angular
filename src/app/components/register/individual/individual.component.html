@@ -1,52 +1,32 @@
-<div id="box">
-    <mat-card class="register">
-        <div>
-            <mat-card-header>
-                <div class="title">
-                    <mat-card-title class="please-work">Applicant Registration</mat-card-title>
-                </div>
-            </mat-card-header>
-        </div>
-        <div>
-            <mat-card-content>
-                <div>
-                    <mat-form-field>
-                        <mat-label>First Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Firstname" type="text" name="First Name" required>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Last Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Lastname" type="text" name="Last Name" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Email</mat-label>
-                        <input matInput [(ngModel)]="userData.Email" type="email" name="Email" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Current Job Title</mat-label>
-                        <input matInput [(ngModel)]="userData.CurrentTitle" type="text" name="Current Job Title" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Field/Specialization</mat-label>
-                        <input matInput [(ngModel)]="userData.Field" type="text" name="Field/Specialization" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Years of Experience</mat-label>
-                        <input matInput [(ngModel)]="userData.Years" type="number" name="Years of Experience" required>
-                    </mat-form-field>
-                </div>
-            </mat-card-content>
-        </div>  
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Get Hired!</button>
-        </mat-card-actions>  
-    </mat-card>
+<div id="box" class="box">
+    <header>Applicant <br> Registration</header>
+    <div class="form-group">
+    <form id="form" #userForm="ngForm" class="topBefore">
+        
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="First Name" 
+        required [(ngModel)]="model.firstname" name="firstname">
+        
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" class="form-control" placeholder="Last Name" 
+        required [(ngModel)]="model.lastname" name="lastname">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="Email" 
+        required [(ngModel)]="model.email" name="email">
+
+        <br>
+        <input id="submit" (click)="onSubmit()" type="submit" value="GO!">
+    </form>
 </div>
+
+
+<!-- this is for the dropdown selector form -->
+        <!-- <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control"  id="power"
+                  required
+                  [(ngModel)]="model.power" name="power">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+        </div> -->
