@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class UtilService {
 
-  private _serverDomain: string = "http://localhost:8080";
+  private _serverDomain: string = "http://localhost:8080/clientportal/api";
 
   jwt: any = sessionStorage.getItem('JWT');
   headers = new HttpHeaders().set('content-type', 'application/json').set('authorization', this.jwt);
 
-  public getServerDomain() {
+  public api() {
     return this._serverDomain;
   }
 

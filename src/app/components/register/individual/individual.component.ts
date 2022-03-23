@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
-import { User } from '../../../classes/user';
-
+import { ApplicantService } from 'src/app/services/applicant.service';
+import { Applicant } from '../../../classes/applicant';
 @Component({
   selector: 'app-individual',
   templateUrl: './individual.component.html',
@@ -11,17 +10,13 @@ import { User } from '../../../classes/user';
 export class IndividualComponent {
 
 
-  model = new User('', '', '');
+  model = new Applicant('', '', '', '', '', '', '', '');
 
   constructor(private userService: UserService) { }
   
 
   onSubmit(): void {
-    this.userService.editUser(this.model).subscribe(
-      data => {
-        console.log(data);
-      }
-    );
+
   }
 
 }

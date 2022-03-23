@@ -3,30 +3,30 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UtilService } from './util.service';
-import { User } from '../classes/user';
+import { User } from 'src/app/classes/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private httpClient: HttpClient, private utilService: UtilService, private router: Router) {}
+  constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
 
   verifyUser(email: string | undefined): Observable<any> {
-    return this.httpClient.get<User>(`${this.utilService.getServerDomain()}/clientportal/api/user/${email}`);
+    return this.httpClient.get<User>(`${this.util.api()}/user/${email}`);
   }
   createUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(`${this.utilService.getServerDomain()}/clientportal/api/user`, user);
+    return this.httpClient.post<User>(`${this.util.api()}/user`, user);
   }
   editUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(`${this.utilService.getServerDomain()}/clientportal/api/user`, user, {'headers': this.utilService.headers});
+    return this.httpClient.put<User>(`${this.util.api()}/user`, user, {'headers': this.utilService.headers});
   }
   getUser(userId: number): Observable<User> {
-    return this.httpClient.get<User>(`${this.utilService.getServerDomain()}/clientportal/api/user/${userId}`, {'headers': this.utilService.headers});
+    return this.httpClient.get<User>(`${this.util.api()}/user/${userId}`, {'headers': this.utilService.headers});
   }
 
   
   login(email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/login`, {
+    return this.httpClient.post<any>(`${this.util.api()}/login`, {
       email: email,
       password: password
     }, {observe: "response"});
