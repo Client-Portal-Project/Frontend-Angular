@@ -11,8 +11,8 @@ export class UtilService {
   jwt: any = sessionStorage.getItem('JWT');
   headers = new HttpHeaders().set('content-type', 'application/json').set('authorization', this.jwt);
 
-  public api() {
-    return this._serverDomain;
+  public api(endpoint:string) {
+    return this._serverDomain + endpoint;
   }
 
   public setHeaders(): void {

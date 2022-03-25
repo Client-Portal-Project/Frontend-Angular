@@ -11,12 +11,13 @@ export class ApplicantService {
 
   constructor(private httpclient: HttpClient, private util: UtilService) { }
 
+  endpoint = "/applicant/"
   getApplicants(): Observable<Applicant[]> {
-    return this.httpclient.get<Applicant[]>(this.util.api() + "/applicant");
+    return this.httpclient.get<Applicant[]>(this.util.api(this.endpoint));
   }
 
   getApplicant(id: number): Observable<Applicant> {
-    return this.httpclient.get<Applicant>(this.util.api() + "/applicant/" + id);
+    return this.httpclient.get<Applicant>(this.util.api(this.endpoint) + id);
   }
 
   // todo: create applicant service, create form for applicant, use service in form to create applicant in backend.

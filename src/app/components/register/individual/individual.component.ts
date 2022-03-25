@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApplicantService } from 'src/app/services/applicant.service';
 import { Applicant } from '../../../classes/applicant';
+
 @Component({
   selector: 'app-individual',
   templateUrl: './individual.component.html',
@@ -10,9 +11,9 @@ import { Applicant } from '../../../classes/applicant';
 export class IndividualComponent {
 
 
-  model = new Applicant('', '', '', '', '', '', '', '');
+  model = new Applicant(undefined, '','','','',[]);
 
-  constructor(private userService: UserService) { }
+  constructor(private service: ApplicantService) { }
   
 
   onSubmit(): void {
