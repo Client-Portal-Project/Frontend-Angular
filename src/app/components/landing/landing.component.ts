@@ -12,8 +12,20 @@ import { Auth0Client } from '@auth0/auth0-spa-js';
 
 export class LandingComponent {
   
-  constructor(public auth0: AuthService, public service: UserService) { 
-    this.auth0.user$.subscribe(user => { console.log(user);}, err => {}, () => {});
+  constructor(public auth0: AuthService, private service: UserService) { 
+    this.auth0.user$.subscribe(user => { 
+      this.service.editUser(new User(
+        user?.email,
+        user?.email_verified,
+        user?.family_name,
+        user?.given_name,
+        user?.name,
+        user?.nickname,
+        user?.picture,
+        user?.phone_number,
+        user?.phone_number_verified,
+        user?.birthdate))}, err => {}, () => {});
+
         // if(user){
         //   usr = new User(user.email!, user.family_name!, user.given_name!, user.name!, user.nickname!, user.picture!, user.sub!, user.updated_at!);
         //   console.log(user.email, user.family_name, user.given_name, user.name, user.nickname, user.picture, user.sub, user.updated_at);

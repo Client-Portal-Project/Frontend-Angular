@@ -11,6 +11,7 @@ import { User } from 'src/app/classes/user';
 export class UserService {
   constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
   endpoint = "/user/"
+
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
@@ -18,6 +19,7 @@ export class UserService {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
   editUser(user: User): Observable<User> {
+    console.log(user);
     return this.httpClient.put<User>(this.util.api(this.endpoint), user, {'headers': this.util.headers});
   }
   getUser(userId: number): Observable<User> {
