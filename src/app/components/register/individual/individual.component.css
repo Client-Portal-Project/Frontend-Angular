@@ -30,13 +30,13 @@ input {
   width: 400px;
   height: 50px;
   padding: 0px 15px 0px 15px;
-  
+
   outline: none;
   color: #7474747b;
-  
+
   border: solid 1px #b3aca7;
   border-bottom: none;
-  
+
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -51,18 +51,18 @@ input:hover {
 #submit {
   width: 20%;
   position: fixed;
-  
-  
+
+
   padding: 0;
   margin: -5px 0px 0px 0px;
-  
+
   font-family: 'Lato', sans-serif;
   font-size: 0.875em;
   color: #b3aca7;
-  
+
   outline:none;
   cursor: pointer;
-  
+
   border: solid 1px #b3aca7;
   border-top: none;
 }

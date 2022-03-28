@@ -61,7 +61,7 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
       cacheLocation: 'localstorage',
       useRefreshTokens: true
     }),
-   
+
   ],
   providers: [UtilService],
   bootstrap: [AppComponent]

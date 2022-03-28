@@ -1,24 +1,49 @@
+<br><br><br><br>
 <div id="box" class="box">
     <header>Applicant <br> Registration</header>
-    <!-- <div class="form-group">
-    <form id="form" #userForm="ngForm" class="topBefore">
-        
-        <label for="firstname">First Name</label>
-        <input type="text" class="form-control" id="firstname" placeholder="First Name" 
-        required [(ngModel)]="model.firstname" name="firstname">
-        
-        <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" class="form-control" placeholder="Last Name" 
-        required [(ngModel)]="model.lastname" name="lastname">
+    <form #f="ngForm">
+      {{ model | json }}
 
-        <label for="email">Email</label>
-        <input type="email" id="email" class="form-control" placeholder="Email" 
-        required [(ngModel)]="model.email" name="email">
+      <!-- model.resume -->
+      <div class="form-group">
+        <label for="resume">Upload your Resume</label>
+        <input type="file" name="resume" id="resume" [(ngModel)]="model.resume" #resume="ngModel" required>
+      </div>
 
-        <br>
-        <input id="submit" (click)="onSubmit()" type="submit" value="GO!">
-    </form> -->
+      <!-- model.aboutMe -->
+      <div class="form-group">
+        <label for="aboutMe">Tell me about yourself</label>
+        <input type="text" id="aboutMe" name="aboutMe" [(ngModel)]="model.aboutMe" #aboutMe="ngModel" required>
+      </div>
+
+      <!-- model.educationLevel -->
+      <div class="form-group">
+        <label for="educationLevel">Education Level</label>
+        <select class="form-control"  id="educationLevel" name="educationLevel" [(ngModel)]="model.educationLevel" #educationLevel="ngModel" required>
+          <option *ngFor="let level of educationLevels" [value]="level">{{level}}</option>
+        </select>
+      </div>
+
+      <!-- model.educationField -->
+      <div class="form-group">
+        <label for="educationField">Field of Education</label>
+        <select class="form-control"  id="educationField" name="educationField" [(ngModel)]="model.educationField" #educationField="ngModel" required>
+          <option *ngFor="let field of educationFields" [value]="field">{{field}}</option>
+        </select>
+      </div>
+
+      <!-- model.employmentStatus -->
+      <div class="form-group">
+        <label for="employmentStatus">Employment Status</label>
+        <select class="form-control"  id="employmentStatus" name="employmentStatus" [(ngModel)]="model.employmentStatus" #employmentStatus="ngModel" required>
+          <option *ngFor="let status of employmentStatuses" [value]="status">{{status}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
 </div>
+
 
 
 <!-- this is for the dropdown selector form -->
