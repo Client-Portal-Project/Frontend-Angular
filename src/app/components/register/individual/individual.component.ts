@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { NgModule, Component, OnInit } from '@angular/core';
 import { ApplicantService } from 'src/app/services/applicant.service';
 import { Applicant } from '../../../classes/applicant';
 
@@ -16,9 +15,7 @@ export class IndividualComponent implements OnInit{
   educationLevels = ['High School','Associate Degree','Bachelor Degree','Master Degree','PhD','Other']
   educationFields = ['Computer Science','Mathematics','Physics','Chemistry','Biology','Other']
   submitted = false;
-  model:Applicant = new Applicant(
-    undefined, 'I am...',
-    this.educationLevels[0],this.educationFields[0],this.employmentStatuses[0]);
+  model:Applicant = new Applicant();
 
   ngOnInit() {}
 
