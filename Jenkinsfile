@@ -104,6 +104,12 @@ pipeline {
             }
         }
 
+        stage('Upload to S3 Bucket'){
+            steps {
+                s3Upload(file: 'index.html', bucket:'angular-front-px', path:"https://github.com/Client-Portal-Project/Frontend-Angular/tree/main/src")
+     
+            }
+        }
 
     }
     post {
