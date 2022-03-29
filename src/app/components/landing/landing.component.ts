@@ -11,10 +11,10 @@ import { Auth0Client } from '@auth0/auth0-spa-js';
 })
 
 export class LandingComponent {
-  
-  constructor(public auth0: AuthService, private service: UserService) { 
-    this.auth0.user$.subscribe(user => { 
-      this.service.editUser(new User(
+
+  constructor(public auth0: AuthService, private service: UserService) {
+    this.auth0.user$.subscribe(user => {
+      this.service.createUser(new User(
         user?.email,
         user?.email_verified,
         user?.family_name,
@@ -24,7 +24,7 @@ export class LandingComponent {
         user?.picture,
         user?.phone_number,
         user?.phone_number_verified,
-        user?.birthdate))}, err => {}, () => {});
+        user?.birthdate)).subscribe()}, err => {console.log("error")}, () => {console.log("another")});
 
         // if(user){
         //   usr = new User(user.email!, user.family_name!, user.given_name!, user.name!, user.nickname!, user.picture!, user.sub!, user.updated_at!);

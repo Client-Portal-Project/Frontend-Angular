@@ -1,12 +1,9 @@
 .box {
     position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    align-content: center;
     color:#160f07;
     font-family: 'Lato', sans-serif;
     background: #e2dedb;
-    margin-inline: 101px;
 }
 
 header {

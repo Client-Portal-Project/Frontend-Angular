@@ -12,8 +12,8 @@
 
       <!-- model.aboutMe -->
       <div class="form-group" [ngClass]="{
-        'has-danger': aboutMe.invalid && (aboutMe.dirty || aboutMe.touched),
-        'has-success': aboutMe.valid && (aboutMe.dirty || aboutMe.touched)
+        'has-danger': aboutMe.invalid && aboutMe.touched,
+        'has-success': aboutMe.valid && aboutMe.touched
         }">
         <label for="aboutMe">Tell me about yourself</label>
         <input type="text" id="aboutMe" name="aboutMe" [(ngModel)]="model.aboutMe" #aboutMe="ngModel" required>
