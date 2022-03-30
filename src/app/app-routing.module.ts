@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'register/company', component: CompanyComponent },
   { path: 'register/individual', component: IndividualComponent },
-  {path: "upload", component: FileuploaderComponent},
-  {path: "fileView", component: FileViewerComponent}
+  { path: "upload", component: FileuploaderComponent},
+  { path: "fileView", component: FileViewerComponent}
 ];
 
 @NgModule({
