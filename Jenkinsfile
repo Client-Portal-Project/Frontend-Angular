@@ -54,18 +54,9 @@ pipeline {
        
         stage('Upload to S3') {
         steps{
-            script {
-
-                dir('/var/lib/jenkins/workspace/rtal_Frontend-Angular_dev_branch'){
-
                     pwd(); //Log current directory
                         // Upload files from working directory '' in your project workspace
-                        s3Upload(entries: [[bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*']], userMetadata:[]);
-                        
-                    
-
-                };
-            }
+                        s3Upload(entries: [[bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*']], userMetadata:[]);           
         }
              }
         
