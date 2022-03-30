@@ -60,14 +60,14 @@ pipeline {
 
                     pwd(); //Log current directory
 
-                    withAWS(region:'us-east-1',credentials:'d47e875c-af42-4287-9499-efcd2d6056e4') {
+            
 
                         def identity=awsIdentity();//Log AWS credentials
 
                         // Upload files from working directory '' in your project workspace
                         s3Upload(bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*');
                         
-                    }
+                    
 
                 };
             }
