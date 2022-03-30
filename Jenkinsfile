@@ -53,12 +53,20 @@ pipeline {
         
        
         stage('Upload to S3 Bucket'){
-            steps {
-                sh('ls')
-                sh('ls src/')
-                s3Upload (consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'angular-front-px', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-iso-east-1', showDirectlyInBrowser: false, sourceFile: '**/dist/project-x/*', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'ProjectX-S3', userMetadata: [])
+             dir('var/lib/jenkins/workspace/rtal_Frontend-Angular_dev_branch'){
 
+            pwd(); //Log current directory
+
+            withAWS(region:'us-east-1',credentials:'d47e875c-af42-4287-9499-efcd2d6056e4') {
+
+                 def identity=awsIdentity();//Log AWS credentials
+
+                // Upload files from working directory 'dist' in your project workspace
+                s3Upload(bucket:" angular-front-px", workingDir:'dist', includePathPattern:'**/*');
             }
+
+        };
+    }
         }
 
     }
