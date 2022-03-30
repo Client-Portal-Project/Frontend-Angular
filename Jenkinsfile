@@ -54,8 +54,7 @@ pipeline {
        
          stage('Upload') {
              steps{
-                dir('/var/lib/jenkins/workspace/rtal_Frontend-Angular_dev_branch'){
-
+               
                  pwd(); //Log current directory
 
                 withAWS(region:'us-iso-east-1',credentials:'d47e875c-af42-4287-9499-efcd2d6056e4') {
@@ -66,7 +65,6 @@ pipeline {
                 s3Upload(bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*');
             }
 
-        };
              }
         
     }
