@@ -16,29 +16,18 @@ export class UserService {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
   createUser(user: User): Observable<User> {
-    console.log(user);
-    console.log(this.util.api(this.endpoint));
-    console.log(this.httpClient.post<User>(this.util.api(this.endpoint), user));
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
   editUser(user: User): Observable<User> {
-    console.log(user);
-    console.log(this.util.api(this.endpoint));
     return this.httpClient.put<User>(this.util.api(this.endpoint), user, {'headers': this.util.headers});
   }
   getUser(userId: number): Observable<User> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+userId, {'headers': this.util.headers});
   }
-
-
-  login(email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${this.util.api(this.endpoint)}/login`, {
-      email: email,
-      password: password
-    }, {observe: "response"});
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.util.api(this.endpoint), {'headers': this.util.headers});
   }
-  logout() {
-    sessionStorage.clear();
-    this.router.navigateByUrl('');
+  deleteUser(userId: number): Observable<User> {
+    return this.httpClient.delete<User>(this.util.api(this.endpoint)+userId, {'headers': this.util.headers});
   }
 }

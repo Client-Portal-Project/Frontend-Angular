@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/classes/user';
-import { Auth0Client } from '@auth0/auth0-spa-js';
 
 @Component({
   selector: 'app-landing',
@@ -24,7 +23,7 @@ export class LandingComponent {
         user?.picture,
         user?.phone_number,
         user?.phone_number_verified,
-        user?.birthdate)).subscribe()}, err => {console.log("error")}, () => {console.log("another")});
+        user?.birthdate)).subscribe()}, err => {console.log("error")}, () => {console.log("other")});
 
         // if(user){
         //   usr = new User(user.email!, user.family_name!, user.given_name!, user.name!, user.nickname!, user.picture!, user.sub!, user.updated_at!);
