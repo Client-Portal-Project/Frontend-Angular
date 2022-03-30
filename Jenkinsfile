@@ -59,11 +59,6 @@ pipeline {
                 dir('/var/lib/jenkins/workspace/rtal_Frontend-Angular_dev_branch'){
 
                     pwd(); //Log current directory
-
-            
-
-                        def identity=awsIdentity();//Log AWS credentials
-
                         // Upload files from working directory '' in your project workspace
                         s3Upload(bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*');
                         
