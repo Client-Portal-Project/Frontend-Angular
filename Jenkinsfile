@@ -52,18 +52,17 @@ pipeline {
         }
         
        
-        stage('Upload to S3') {
-        steps{
-                    pwd(); //Log current directory
-                        // Upload files from working directory '' in your project workspace
-                        s3Upload(entries: [[bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*']], userMetadata:[]);           
-        }
-             }
-        
-    }
+        stage('Upload to S3 Bucket'){
+            steps {
+                DEF url = s3PresignURL(bucket: 'angular-front-px', key:'d47e875c-af42-4287-9499-efcd2d6056e4')
+                sh('ls')
+                sh('ls src/')
+                s3Upload (consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'angular-front-px', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-iso-east-1', showDirectlyInBrowser: false, sourceFile: '**/dist/project-x/*', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'ProjectX-S3', userMetadata: [])
+
+            }
         }
 
-    
+    }
     post {
         always {
             script {
@@ -82,4 +81,4 @@ pipeline {
             cleanWs()
         }
     }
- 
+} 
