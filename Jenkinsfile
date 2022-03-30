@@ -61,7 +61,7 @@ pipeline {
                 // Upload files from working directory 'dist' in your project workspace
             }
 
-                s3Upload(bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*');
+                s3Upload(entries:[bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*']);
              }
         
     }
