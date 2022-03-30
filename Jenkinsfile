@@ -52,16 +52,26 @@ pipeline {
         }
         
        
-         stage('Upload') {
-             steps{
-               
-                 pwd(); //Log current directory
+        stage('Upload to S3') {
+        steps{
+            script {
 
-                withAWS(region:'us-iso-east-1',credentials:'d47e875c-af42-4287-9499-efcd2d6056e4') {
-                // Upload files from working directory 'dist' in your project workspace
+                dir('/var/lib/jenkins/workspace/rtal_Frontend-Angular_dev_branch'){
+
+                    pwd(); //Log current directory
+
+                    withAWS(region:'us-east-1',credentials:'d47e875c-af42-4287-9499-efcd2d6056e4') {
+
+                        def identity=awsIdentity();//Log AWS credentials
+
+                        // Upload files from working directory '' in your project workspace
+                        s3Upload(bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*');
+                        
+                    }
+
+                };
             }
-
-                s3Upload(entries:[bucket:"angular-front-px", workingDir:'dist', includePathPattern:'**/*']);
+        }
              }
         
     }
