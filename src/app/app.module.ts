@@ -16,7 +16,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { UtilService } from './services/util.service';
 import { AboutComponent } from './components/about/about.component';
-import { LoginComponent } from './components/login/login.component';
 import { ResetloginComponent } from './components/resetlogin/resetlogin.component';
 import { CompanyComponent } from './components/register/company/company.component';
 import { IndividualComponent } from './components/register/individual/individual.component';
@@ -33,7 +32,6 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
     RegisterComponent,
     NavbarComponent,
     AboutComponent,
-    LoginComponent,
     ResetloginComponent,
     CompanyComponent,
     IndividualComponent,
