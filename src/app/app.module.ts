@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { UtilService } from './services/util.service';
@@ -52,6 +53,7 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    MatStepperModule,
     ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-0ocf6tyd.us.auth0.com',

@@ -71,7 +71,7 @@ h1 {
   transition: all 1s ease-in-out;
 }
 .screen.left:hover, .screen.right:hover {
-  width: 55%;
+  width: 52%;
   z-index: 1;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }

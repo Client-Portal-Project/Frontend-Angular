@@ -1,77 +1,58 @@
-.box {
-    position: center;
-    align-content: center;
-    color:#160f07;
-    font-family: 'Lato', sans-serif;
-    background: #e2dedb;
+.box{
+  padding: 3px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #000;
+  margin: 20px;
+  margin-top: 0px;
+}
+.form-group{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 5px;
+  margin: -2px;
+  box-shadow: 0px 0px 10px #000;
+}
+.two-inputs{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-header {
-  position: relative;
-  margin: 100px 0 25px 0;
-  font-size: 2.3em;
-  text-align: center;
-  letter-spacing: 7px;
-  line-height: 40px;
+label{
+  font: bold 14px/30px 'Roboto', sans-serif;
+  margin: -8px;
+}
+header{
+  font: bold 30px/40px 'Roboto', sans-serif;
 }
 
-#form {
-  position: relative;
-  width: 80%;
-  margin: 50px auto 100px auto;
+input[type="file"]{
+  display: none;
 }
-
-input {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.875em;
-  width: 400px;
-  height: 50px;
-  padding: 0px 15px 0px 15px;
-
-  outline: none;
-  color: #7474747b;
-
-  border: solid 1px #b3aca7;
-  border-bottom: none;
-
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-}
-
-input:hover {
-  background: #b5b5b5;
-  color: #e2dedb;
-}
-
-#submit {
-  width: 20%;
-  position: fixed;
-
-
-  padding: 0;
-  margin: -5px 0px 0px 0px;
-
-  font-family: 'Lato', sans-serif;
-  font-size: 0.875em;
-  color: #b3aca7;
-
-  outline:none;
+input[type="file"]:hover{
   cursor: pointer;
-
-  border: solid 1px #b3aca7;
-  border-top: none;
+}
+textarea, select {
+  width: 100%;
+  padding: 12px 6px;
+  margin: 10px 5px;
+  transition-delay: .2s;
+  transition-duration: .6s;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.466);
+  border-radius: 5px;
+}
+textarea:hover, select:hover {
+  background-color: rgb(226, 226, 226);
 }
 
-#submit:hover {
-  color: #e2dedb;
-}
-
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
-}
-
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
-}
