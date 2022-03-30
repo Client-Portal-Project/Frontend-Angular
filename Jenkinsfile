@@ -32,6 +32,8 @@ pipeline {
                         error('Failure')
                     }
                 }
+                
+                sh('ls')
             }
         }
 
