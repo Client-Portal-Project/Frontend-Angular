@@ -1,7 +1,6 @@
 def CURR = 'Pre-Pipeline'
 def CMD = 'No command given'
 def ERR = 'NONE'
-def url = s3PresignURL(bucket: 'angular-front-px', key:'d47e875c-af42-4287-9499-efcd2d6056e4')
 pipeline {
     agent any
 
