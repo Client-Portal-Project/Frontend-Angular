@@ -25,6 +25,9 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
 import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
+import { ApplicantComponent } from './main/applicant/applicant.component';
+import { RecruiterComponent } from './main/recruiter/recruiter.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
     ResetemailComponent,
     Auth0LoginComponent,
     FileViewerComponent,
-    FileuploaderComponent
+    FileuploaderComponent,
+    ApplicantComponent,
+    RecruiterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
