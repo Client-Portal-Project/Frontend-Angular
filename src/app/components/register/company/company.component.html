@@ -1,11 +1,11 @@
-<div class = "box">
-<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+<div class="box">
+<mat-stepper orientation="vertical" #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Need to enter company name">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your companyName</ng-template>
+      <ng-template matStepLabel>Fill out your company name</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Company Name</mat-label>
-        <input matInput formControlName="companyName">
+        <input matInput formControlName="companyName" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
