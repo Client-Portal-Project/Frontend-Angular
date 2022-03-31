@@ -17,10 +17,26 @@ export class MainComponent implements OnInit {
   "https://www.w3schools.com/howto/img_forest.jpg"];
 
   potentials: any[] = this.matches;
+  collapsed = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // add "collapsed" class to the left bar elements
+  collapse(){
+    this.collapsed = !this.collapsed;
+    var elements = document.getElementsByName("collapsable");
+    if(this.collapsed){
+      for(var i = 0; i < elements.length; i++){
+        elements[i].classList.add("collapsed");
+      }
+    }else{
+      for(var i = 0; i < elements.length; i++){
+        elements[i].classList.remove("collapsed");
+      }
+    }
   }
 
 }
