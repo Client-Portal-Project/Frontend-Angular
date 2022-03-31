@@ -1,1 +1,25 @@
-<p>main works!</p>
+<div class="container">
+  <div class="full screen left">
+
+    <div class="minibar">
+      <div class="minibar-icon left">
+        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+      </div>
+      <div class="minibar-icon right">
+        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+      </div>
+      <div class="minibar-icon right">
+        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+      </div>
+      <div class="minibar-icon right">
+        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+      </div>
+    </div>
+
+    <div class="match-grid">
+        <div class="grid-item" *ngFor="let match of matches"><img class="grid-item" src={{match}}></div>
+    </div>
+  </div>
+
+  <div class="full screen right"></div>
+</div>
