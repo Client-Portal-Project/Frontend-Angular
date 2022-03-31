@@ -12,6 +12,8 @@ import { FileuploaderComponent } from './components/fileuploader/fileuploader.co
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
 import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
 import { MainComponent } from './main/main.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: 'register/individual', component: IndividualComponent },
   { path: "upload", component: FileuploaderComponent},
   { path: "fileView", component: FileViewerComponent},
-  { path: "main", component: MainComponent}
+  { path: "main", component: MainComponent},
+  { path: "profile", component: ProfileFormComponent},
+  { path: "auth0login", component: Auth0LoginComponent}
 ];
 
 @NgModule({

@@ -28,6 +28,7 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
 import { ApplicantComponent } from './main/applicant/applicant.component';
 import { RecruiterComponent } from './main/recruiter/recruiter.component';
 import { MainComponent } from './main/main.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MainComponent } from './main/main.component';
     FileuploaderComponent,
     ApplicantComponent,
     RecruiterComponent,
-    MainComponent
+    MainComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,
