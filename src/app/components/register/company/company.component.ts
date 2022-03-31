@@ -14,9 +14,7 @@ export class CompanyComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {
     this.firstFormGroup = new FormGroup({
       companyName: new FormControl('', Validators.required),
-      companyEmail: new FormControl('', Validators.required),
-      companyPhone: new FormControl('', Validators.required),
-      companyAddress: new FormControl('', Validators.required),
+      companyEmail: new FormControl('', Validators.required)
     });
     this.resume = undefined;
   }
