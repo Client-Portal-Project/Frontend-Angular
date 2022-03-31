@@ -12,9 +12,7 @@ export class MainComponent implements OnInit {
   ["https://www.w3schools.com/howto/img_forest.jpg",
   "https://www.w3schools.com/howto/img_snow.jpg",
   "https://www.w3schools.com/howto/img_mountains.jpg",
-  "https://www.w3schools.com/howto/img_lights.jpg",
-  "https://www.w3schools.com/howto/img_mountains.jpg",
-  "https://www.w3schools.com/howto/img_forest.jpg"];
+  "https://www.w3schools.com/howto/img_lights.jpg"];
 
   potentials: any[] = this.matches;
   collapsed = false;
@@ -22,6 +20,26 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  // mouse held down move  and rotate the image. looks janky right now
+  onMouseDown(event: MouseEvent, imagename: string){
+    var image = document.getElementById(imagename);
+    image!.style.display = 'block';
+    image!.style.position = 'absolute';
+    const x = event.clientX - image!.offsetLeft;
+    const y = event.clientY - image!.offsetTop;
+
+    const mouseMoveListener = (event: MouseEvent) => {
+      image!.style.left = event.clientX - x + 'px';
+      image!.style.top = event.clientY - y + 'px';
+      image!.style.transform = 'rotate(' + (x - event.clientX) / 10 + 'deg)';
+    };
+    const mouseUpListener = () => {
+      document.removeEventListener('mousemove', mouseMoveListener);
+      document.removeEventListener('mouseup', mouseUpListener);
+    }
+    document.addEventListener('mousemove', mouseMoveListener);
+    document.addEventListener('mouseup', mouseUpListener);
   }
 
   // add "collapsed" class to the left bar elements

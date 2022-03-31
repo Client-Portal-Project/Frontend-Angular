@@ -14,21 +14,14 @@ div{border: 1px solid black;}
 .full.screen.left{
   width: 320px;
   background-color: rgba(64, 224, 208, 0.568);
-}
-.full.screen.left.collapsed{
-  width: 55px;
-  min-width: none;
-  background-color: rgba(614, 224, 208, 0.918);
+  z-index: 2;
 }
 .full.screen.right{
   margin-left: 320px;
   width: 80%;
   background-color: rgba(165, 42, 42, 0.377);
 }
-.full.screen.right.collapsed{
-  width: 100%;
-  margin-left: 55px;
-}
+
 .item{
   display: block;
   margin: auto;
@@ -41,11 +34,6 @@ div{border: 1px solid black;}
 }
 .header {grid-area: hd;}
 .footer {grid-area: ft;}
-.minibar.collapsed{
-  width: 55px;
-  grid-template-rows: repeat(2, 1fr);
-  height: auto;
-}
 .minibar{
   position: absolute;
   top: 0;
@@ -65,9 +53,7 @@ div{border: 1px solid black;}
   width: 45px;
   height: 45px;
 }
-.collapser{transform: rotate(-90deg) scale(.6);}
-.collapser.collapsed{transform: rotate(90deg) scale(.6);}
-.match-grid.collapsed{display: none;}
+
 .match-grid{
   position: absolute;
   top: 12%;
@@ -82,7 +68,7 @@ div{border: 1px solid black;}
 }
 .grid-item{
   /* round the corners */
-  border-radius: 45px;
+  border-radius: 40px;
   box-shadow: 0 0 5px 4px rgba(80, 80, 80, 0.5);
   padding: 1px;
   width: 90%;
@@ -92,12 +78,44 @@ div{border: 1px solid black;}
   margin-bottom: 2px;
 }
 .choice-area{
-  margin-left: 20%;
-  width: 60%;
+  margin-left: 10%;
+  width: 80%;
   height: 100%;
   background-color: rgb(158, 111, 221);
 }
+.swiper{
+  position: absolute;
+}
 
 
+.collapser{transform:
+  rotate(-90deg) scale(.6);
+}
+.collapser:hover{transform:
+  rotate(-90deg) scale(.8) translateY(-5px)
+}
+.collapser.collapsed{transform:
+  rotate(90deg) scale(.6);
+}
+.collapser.collapsed:hover{transform:
+  rotate(90deg) scale(.8) translateY(-5px);
+}
+.match-grid.collapsed{
+  display: none;
+}
+.minibar.collapsed{
+  width: 50px;
+  grid-template-rows: repeat(2, 1fr);
+  height: auto;
+}
+.full.screen.left.collapsed{
+  width: 50px;
+  min-width: none;
+  background-color: rgba(614, 224, 208, 0.918);
+}
+.full.screen.right.collapsed{
+  width: 100%;
+  margin-left: 50px;
+}
 
 

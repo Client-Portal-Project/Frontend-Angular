@@ -23,7 +23,9 @@
   <div class="full screen right" name="collapsable">
 
     <div class="choice-area">
-
+      <img class="full item" *ngFor="let person of potentials"
+      src="{{person}}" id="{{person}}"
+      (click)="onMouseDown($event, person)">
     </div>
 
   </div>
