@@ -3,29 +3,29 @@
 
     <div class="minibar" name="collapsable">
       <div class="header">
-          <img class="minibar-icon item left" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
-          <img class="minibar-icon item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
-          <img class="minibar-icon item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
-          <img class="minibar-icon item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+          <img class="item left" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+          <img class="item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+          <img class="item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+          <img class="item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
       </div>
       <div class="footer">
-          <img class="minibar-icon item right collapser" name="collapsable"
+          <img class="item right collapser" name="collapsable"
           src="https://www.svgrepo.com/show/365206/caret-double-up-thin.svg"
           (click)="collapse()">
       </div>
     </div>
 
     <div class="match-grid" name="collapsable">
-        <div *ngFor="let match of matches"><img class="grid-item item" src={{match}}></div>
+        <img class="item" *ngFor="let match of matches" src={{match}}>
     </div>
   </div>
 
   <div class="full screen right" name="collapsable">
 
-    <div class="choice-area">
+    <div class="choice-area left">
       <img class="full item" *ngFor="let person of potentials"
       src="{{person}}" id="{{person}}"
-      (click)="onMouseDown($event, person)">
+      (pointerdown)="onMouseDown($event, person);">
     </div>
 
   </div>

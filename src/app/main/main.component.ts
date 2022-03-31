@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   "https://www.w3schools.com/howto/img_mountains.jpg",
   "https://www.w3schools.com/howto/img_lights.jpg"];
 
-  potentials: any[] = this.matches;
+  potentials: any[] = this.matches.slice();
   collapsed = false;
 
   constructor() { }
@@ -22,24 +22,36 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
   // mouse held down move  and rotate the image. looks janky right now
-  onMouseDown(event: MouseEvent, imagename: string){
+  onMouseDown(event: MouseEvent, imagename: string) {
     var image = document.getElementById(imagename);
-    image!.style.display = 'block';
-    image!.style.position = 'absolute';
+    image!.style.transition = "none";
     const x = event.clientX - image!.offsetLeft;
     const y = event.clientY - image!.offsetTop;
+    console.log(x, y);
 
     const mouseMoveListener = (event: MouseEvent) => {
       image!.style.left = event.clientX - x + 'px';
       image!.style.top = event.clientY - y + 'px';
       image!.style.transform = 'rotate(' + (x - event.clientX) / 10 + 'deg)';
     };
-    const mouseUpListener = () => {
-      document.removeEventListener('mousemove', mouseMoveListener);
-      document.removeEventListener('mouseup', mouseUpListener);
+    const mouseUpListener = (event: MouseEvent) => {
+      var image_x = image!.getBoundingClientRect().left + image!.getBoundingClientRect().width / 2;
+      var half_parent = image!.parentElement!.getBoundingClientRect().left + image!.parentElement!.getBoundingClientRect().width / 2;
+
+      if(image_x! > half_parent!+70){
+        this.potentials.splice(this.potentials.indexOf(imagename), 1);
+      }
+      if(image_x! < half_parent!-70){
+        this.potentials.splice(this.potentials.indexOf(imagename), 1);
+      }
+
+      document.removeEventListener('pointermove', mouseMoveListener);
+      document.removeEventListener('pointerup', mouseUpListener);
+      document.removeEventListener('pointercancel', mouseUpListener);
     }
-    document.addEventListener('mousemove', mouseMoveListener);
-    document.addEventListener('mouseup', mouseUpListener);
+    document.addEventListener('pointermove', mouseMoveListener);
+    document.addEventListener('pointerup', mouseUpListener);
+    document.addEventListener('pointercancel', mouseUpListener);
   }
 
   // add "collapsed" class to the left bar elements
