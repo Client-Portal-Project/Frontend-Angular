@@ -2,24 +2,29 @@
   <div class="full screen left">
 
     <div class="minibar">
-      <div class="minibar-icon left">
+      <div class="minibar-icon item left">
         <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
       </div>
-      <div class="minibar-icon right">
+      <div class="minibar-icon item right">
         <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
       </div>
-      <div class="minibar-icon right">
-        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+      <div>
+        <img class="minibar-icon item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
       </div>
-      <div class="minibar-icon right">
-        <img class="minibar-icon" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
-      </div>
+        <img class="minibar-icon item right" src="https://www.shareicon.net/data/256x256/2016/07/28/803135_music_512x512.png" alt="Google Logo">
+        <img class="minibar-icon item right" src="https://www.svgrepo.com/show/365206/caret-double-up-thin.svg">
     </div>
 
     <div class="match-grid">
-        <div class="grid-item" *ngFor="let match of matches"><img class="grid-item" src={{match}}></div>
+        <div *ngFor="let match of matches"><img class="grid-item item" src={{match}}></div>
     </div>
   </div>
 
-  <div class="full screen right"></div>
+  <div class="full screen right">
+
+    <div class="full choice-area item" *ngFor="let person of potentials">
+      <img class="full item" src="{{person}}">
+    </div>
+
+  </div>
 </div>

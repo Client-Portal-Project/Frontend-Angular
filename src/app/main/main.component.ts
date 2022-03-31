@@ -16,6 +16,8 @@ export class MainComponent implements OnInit {
   "https://www.w3schools.com/howto/img_mountains.jpg",
   "https://www.w3schools.com/howto/img_forest.jpg"];
 
+  potentials: any[] = this.matches;
+
   constructor() { }
 
   ngOnInit(): void {
