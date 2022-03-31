@@ -11,7 +11,6 @@ export class FileuploaderComponent implements OnInit {
 
 
   file!: File;
-
   filename!: string;
   constructor(private fileService: FileService) { }
 

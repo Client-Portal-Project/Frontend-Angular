@@ -9,7 +9,7 @@ import { ResponeMessage } from '../classes/ResponseMessage';
 })
 export class FileService {
 
-  url = "http://localhost:3000/clientportal/api"
+  url = "http://localhost:8080/clientportal/api"
 
   constructor(private client: HttpClient) { }
 
@@ -18,10 +18,8 @@ export class FileService {
     formData.append("file",file);
     let message: string = "";
     return this.client.post<ResponeMessage>(this.url+"/upload", formData);
-
   }
-
-
+  
   getPDF(){
     const httpOptions = {
       'responseType': 'arraybuffer' as 'json'

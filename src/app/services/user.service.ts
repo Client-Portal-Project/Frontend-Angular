@@ -3,35 +3,31 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UtilService } from './util.service';
+import { User } from 'src/app/classes/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private httpClient: HttpClient, private utilService: UtilService, private router: Router) { }
+  constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
+  endpoint = "user/"
 
   verifyUser(email: string | undefined): Observable<any> {
-    return this.httpClient.get<any>(`${this.utilService.getServerDomain()}/clientportal/api/user/${email}`);
+    return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
-
-  createUser(user: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/user`, user);
+  createUser(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
-  
-  login(email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${this.utilService.getServerDomain()}/clientportal/api/login`, {
-      email: email,
-      password: password
-    }, {observe: "response"});
+  editUser(user: User): Observable<User> {
+    return this.httpClient.put<User>(this.util.api(this.endpoint), user, {'headers': this.util.headers});
   }
-
-  editUser(user: any): Observable<any> {
-    return this.httpClient.put<any>(`${this.utilService.getServerDomain()}/clientportal/api/user`, user, {'headers': this.utilService.headers});
+  getUser(userId: number): Observable<User> {
+    return this.httpClient.get<User>(this.util.api(this.endpoint)+userId, {'headers': this.util.headers});
   }
-
-  logout() {
-    sessionStorage.clear();
-    this.router.navigateByUrl('');
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.util.api(this.endpoint), {'headers': this.util.headers});
+  }
+  deleteUser(userId: number): Observable<User> {
+    return this.httpClient.delete<User>(this.util.api(this.endpoint)+userId, {'headers': this.util.headers});
   }
 }

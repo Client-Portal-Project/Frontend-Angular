@@ -17,7 +17,6 @@ export class Auth0LoginComponent implements OnInit {
   ngOnInit(): void {
     //this is intentional
   }
-  
   auth0login()
   { 
     this.auth0.loginWithRedirect();

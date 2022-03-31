@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class RegisterComponent {
 
+  clicked: number = 0;
+
+  rightClick(){this.clicked=2; document.querySelector('.right')?.classList.add('clicked'); document.querySelector('.left')?.classList.remove('clicked');}
+    
+  leftClick(){this.clicked = 1; document.querySelector('.left')?.classList.add('clicked'); document.querySelector('.right')?.classList.remove('clicked');}
 }

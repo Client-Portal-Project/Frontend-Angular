@@ -1,60 +1,38 @@
-<div id="box">
-    <mat-card class="register">
-        <div>
-            <mat-card-header>
-                <div class="title">
-                    <mat-card-title>Company Registration</mat-card-title>
-                </div>
-            </mat-card-header>
-        </div>
-        <div>
-            <mat-card-content>
-                <div>
-                    <mat-form-field>
-                        <mat-label>First Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Firstname" type="text" name="First Name" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Last Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Lastname" type="text" name="Last Name" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Username</mat-label>
-                        <input matInput [(ngModel)]="userData.Username" type="text" name="Username" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Company</mat-label>
-                        <input matInput [(ngModel)]="userData.Company"  type="email" name="Company" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Job Title</mat-label>
-                        <input matInput [(ngModel)]="userData.Job_Title"  type="email" name="Job Title" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Email</mat-label>
-                        <input matInput [(ngModel)]="userData.Email"  type="email" name="Email" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Password</mat-label>
-                        <input matInput  [(ngModel)]="userData.Password"  type="password" name="Password" required>
-                    </mat-form-field>
-                </div>
-            </mat-card-content>
-        </div>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Register your Company</button>
-        </mat-card-actions>   
-    </mat-card>
+<div class="box">
+<mat-stepper orientation="vertical" #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Need to enter company name">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your company name</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Company Name</mat-label>
+        <input matInput formControlName="companyName" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
 </div>

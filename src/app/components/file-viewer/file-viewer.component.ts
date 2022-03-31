@@ -22,10 +22,6 @@ export class FileViewerComponent implements OnInit {
       link.download = this.file.name;
       link.click();
     })
-
-
-
-
   }
 
 }

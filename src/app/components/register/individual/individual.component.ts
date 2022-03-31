@@ -1,50 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+import { NgModule, Component, OnInit } from '@angular/core';
+import { ApplicantService } from 'src/app/services/applicant.service';
+import { Applicant } from '../../../classes/applicant';
 
 @Component({
   selector: 'app-individual',
-  templateUrl: './individual.component.html',
+  templateUrl:'./individual.component.html',
   styleUrls: ['./individual.component.css']
 })
-export class IndividualComponent {
+export class IndividualComponent implements OnInit{
 
-  user: any = {};
-  
-  @Input() userData = {Firstname: '', Lastname: '', Username: '', Email: '', Password: '', Field: '', Years: '', CurrentTitle: '' };
+  constructor(private service: ApplicantService) { }
 
-  constructor(private userService: UserService, private router: Router) { }
+  employmentStatuses = ['Employed','Unemployed','Self-Employed','Retired','Student','Other']
+  educationLevels = ['High School','Associate Degree','Bachelor Degree','Master Degree','PhD','Other']
+  educationFields = ['Computer Science','Mathematics','Physics','Chemistry','Biology','Other']
+  submitted = false;
+  model:Applicant = new Applicant();
 
-  registerUser(): void {
-    console.log(this.userData);
-    this.user.email = this.userData.Email;
-    this.user.password = this.userData.Password;
+  ngOnInit() {}
 
-    this.userService.editUser(this.user).subscribe(response => {
-      if (response.success) {
-        alert(response.message);
-        this.router.navigateByUrl('/login');
-      } else {
-        // alert maybe changed to something else
-        alert(response.message);
-      }
-    })
+  onSubmit(): void {
+    this.submitted = true;
+    console.log(this.model);
   }
-
-  // For registration page
-  editUser(): void {
-    this.user.email = this.userData.Email;
-    this.user.password = this.userData.Password;
-
-    this.userService.editUser(this.user).subscribe(response => {
-      if (response.success) {
-        this.user = response.data;
-        sessionStorage.setItem('user', JSON.stringify(this.user));
-      } else {
-        // alert maybe changed to something else
-        alert(response.message);
-      }
-    })
-  }
-
 }

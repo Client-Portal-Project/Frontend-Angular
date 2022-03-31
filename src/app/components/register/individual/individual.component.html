@@ -1,66 +1,66 @@
-<div id="box">
-    <mat-card class="register">
-        <div>
-            <mat-card-header>
-                <div class="title">
-                    <mat-card-title class="please-work">Individual Registration</mat-card-title>
-                </div>
-            </mat-card-header>
-        </div>
-        <div>
-            <mat-card-content>
-                <div>
-                    <mat-form-field>
-                        <mat-label>First Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Firstname" type="text" name="First Name" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Last Name</mat-label>
-                        <input matInput [(ngModel)]="userData.Lastname" type="text" name="Last Name" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Username</mat-label>
-                        <input matInput [(ngModel)]="userData.Username" type="text" name="Username" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Email</mat-label>
-                        <input matInput [(ngModel)]="userData.Email" type="email" name="Email" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Password</mat-label>
-                        <input matInput [(ngModel)]="userData.Password" type="password" name="Password" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Current Job Title</mat-label>
-                        <input matInput [(ngModel)]="userData.CurrentTitle" type="text" name="Current Job Title" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Field/Specialization</mat-label>
-                        <input matInput [(ngModel)]="userData.Field" type="text" name="Field/Specialization" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>Years of Experience</mat-label>
-                        <input matInput [(ngModel)]="userData.Years" type="number" name="Years of Experience" required>
-                    </mat-form-field>
-                </div>
-            </mat-card-content>
-        </div>  
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="" (click)="registerUser()">Get Hired!</button>
-        </mat-card-actions>  
-    </mat-card>
+<div id="box" class="box">
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <!-- header -->
+    <div class="form-group">
+      <header>Applicant</header>
+      <header>Registration</header>
+    </div>
+
+    <!-- model.resume -->
+    <div class="form-group">
+      <label for="resume">Upload your Resume</label>
+      <input type="file" name="resume" id="resume" [(ngModel)]="model.resume" #resume="ngModel" required>
+    </div>
+
+    <!-- model.aboutMe -->
+    <div class="form-group">
+      <label for="aboutMe">Tell me about yourself</label>
+      <textarea rows="6" cols="33" id="aboutMe" name="aboutMe" [(ngModel)]="model.aboutMe" #aboutMe="ngModel" required></textarea>
+    </div>
+
+    <div class="two-inputs">
+      <!-- model.educationLevel -->
+      <div class="form-group">
+        <label for="educationLevel">Education Level</label>
+        <select class="form-control"  id="educationLevel" name="educationLevel" [(ngModel)]="model.educationLevel" #educationLevel="ngModel" required>
+          <option *ngFor="let level of educationLevels" [value]="level">{{level}}</option>
+        </select>
+      </div>
+      <!-- model.educationField -->
+      <div class="form-group">
+        <label for="educationField">Field of Education</label>
+        <select class="form-control"  id="educationField" name="educationField" [(ngModel)]="model.educationField" #educationField="ngModel" required>
+          <option *ngFor="let field of educationFields" [value]="field">{{field}}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- model.employmentStatus -->
+    <div class="form-group">
+      <label for="employmentStatus">Employment Status</label>
+      <select class="form-control"  id="employmentStatus" name="employmentStatus" [(ngModel)]="model.employmentStatus" #employmentStatus="ngModel" required>
+        <option *ngFor="let status of employmentStatuses" [value]="status">{{status}}</option>
+      </select>
+    </div>
+
+    <!-- call applicantService and create new POST -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">
+        Submit
+      </button>
+    </div>
+
+  </form>
 </div>
+
+
+
+<!-- this is for the dropdown selector form -->
+        <!-- <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control"  id="power"
+                  required
+                  [(ngModel)]="model.power" name="power">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+        </div> -->
