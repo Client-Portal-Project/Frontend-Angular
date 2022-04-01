@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // mouse held down move  and rotate the image. looks janky right now
+  // mouse held down move  and rotate the image.
   onMouseDown(event: MouseEvent, imagename: string) {
     var image = document.getElementById(imagename);
     image!.style.transition = "none";
@@ -38,10 +38,10 @@ export class MainComponent implements OnInit {
       var image_x = image!.getBoundingClientRect().left + image!.getBoundingClientRect().width / 2;
       var half_parent = image!.parentElement!.getBoundingClientRect().left + image!.parentElement!.getBoundingClientRect().width / 2;
 
-      if(image_x! > half_parent!+70){
+      if(image_x! > half_parent!+100){
         this.potentials.splice(this.potentials.indexOf(imagename), 1);
       }
-      if(image_x! < half_parent!-70){
+      if(image_x! < half_parent!-100){
         this.potentials.splice(this.potentials.indexOf(imagename), 1);
       }
 
