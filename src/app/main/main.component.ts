@@ -15,11 +15,17 @@ export class MainComponent implements OnInit {
   "https://www.w3schools.com/howto/img_lights.jpg"];
 
   potentials: any[] = this.matches.slice();
-  collapsed = false;
+  collapsed = true;
 
   constructor() { }
 
   ngOnInit(): void {
+    var elements = document.getElementsByName("collapsable");
+    if(this.collapsed){
+      for(var i = 0; i < elements.length; i++){
+        elements[i].classList.add("collapsed");
+      }
+    }
   }
   // mouse held down move  and rotate the image.
   onMouseDown(event: MouseEvent, imagename: string) {
