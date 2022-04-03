@@ -26,12 +26,14 @@ img {
   margin: auto;
   cursor: pointer;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 3px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 .item:hover, .item:focus{
   border-radius: 30px;
-  box-shadow: rgba(0, 0, 0, 0.459) 0px 2px 5px;
-  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.03);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 6px;
+  background-color: rgb(255, 255, 255);
 }
 .profile{grid-area: pr;}
 .header {grid-area: hd;}
@@ -108,13 +110,13 @@ img {
   rotate(-90deg) scale(1);
 }
 .collapser:hover{transform:
-  rotate(-90deg) scale(1.2) translateY(-5px)
+  rotate(-90deg) scale(1.2);
 }
 .collapser.collapsed{transform:
   rotate(90deg) scale(1);
 }
 .collapser.collapsed:hover{transform:
-  rotate(90deg) scale(1.2) translateY(-5px);
+  rotate(90deg) scale(1.2);
 }
 .match-grid.collapsed{
   display: none;

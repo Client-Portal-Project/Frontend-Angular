@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -44,11 +45,31 @@ export class MainComponent implements OnInit {
       var image_x = image!.getBoundingClientRect().left + image!.getBoundingClientRect().width / 2;
       var half_parent = image!.parentElement!.getBoundingClientRect().left + image!.parentElement!.getBoundingClientRect().width / 2;
 
-      if(image_x! > half_parent!+100){
-        this.potentials.splice(this.potentials.indexOf(imagename), 1);
+      image!.style.transition = "all .4s";
+      if (image_x! > half_parent! + 100) {
+        image!.style.left = screen.width + image!.getBoundingClientRect().width + 'px';
+        timer(500).subscribe(() => {
+          console.log("remove");
+          this.potentials.splice(this.potentials.indexOf(imagename), 1);
+          this.matches.push(imagename);
+        });
       }
-      if(image_x! < half_parent!-100){
-        this.potentials.splice(this.potentials.indexOf(imagename), 1);
+      else if(image_x! < half_parent!-100){
+        image!.style.left =  - image!.getBoundingClientRect().width - 500 + 'px';
+        timer(500).subscribe(() => {
+          this.potentials.splice(this.potentials.indexOf(imagename), 1);
+          image!.style.transition = "0s";
+          image!.style.left = '0px';
+          image!.style.top = '0px';
+          image!.style.transform = 'rotate(0deg)';
+          this.potentials.unshift(imagename);
+
+        });
+      }
+      else {
+        image!.style.left = '0px';
+        image!.style.top = '0px';
+        image!.style.transform = 'rotate(0deg)';
       }
 
       document.removeEventListener('pointermove', mouseMoveListener);
