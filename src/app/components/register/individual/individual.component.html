@@ -1,66 +1,54 @@
-<div id="box" class="box">
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
-    <!-- header -->
-    <div class="form-group">
-      <header>Applicant</header>
-      <header>Registration</header>
-    </div>
+<div class="box">
+  <mat-stepper orientation="vertical" #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Need to upload a file">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Upload your resume </ng-template>
 
-    <!-- model.resume -->
-    <div class="form-group">
-      <label for="resume">Upload your Resume</label>
-      <input type="file" name="resume" id="resume" [(ngModel)]="model.resume" #resume="ngModel" required>
-    </div>
+          <mat-form-field appearance="fill">
+            <mat-label>file upload</mat-label>
+            <div (click)="uploadFile.click()" class="custom-file-upload">
+              <button mat-raised-button color="primary">Choose File</button>
+              <input matInput #uploadFile formControlName="file"
+                placeholder="Upload your resume"
+                (change)="upload($event)"
+                type='file'/>
+            </div>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
 
-    <!-- model.aboutMe -->
-    <div class="form-group">
-      <label for="aboutMe">Tell me about yourself</label>
-      <textarea rows="6" cols="33" id="aboutMe" name="aboutMe" [(ngModel)]="model.aboutMe" #aboutMe="ngModel" required></textarea>
-    </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Need the enter company email">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
 
-    <div class="two-inputs">
-      <!-- model.educationLevel -->
-      <div class="form-group">
-        <label for="educationLevel">Education Level</label>
-        <select class="form-control"  id="educationLevel" name="educationLevel" [(ngModel)]="model.educationLevel" #educationLevel="ngModel" required>
-          <option *ngFor="let level of educationLevels" [value]="level">{{level}}</option>
-        </select>
-      </div>
-      <!-- model.educationField -->
-      <div class="form-group">
-        <label for="educationField">Field of Education</label>
-        <select class="form-control"  id="educationField" name="educationField" [(ngModel)]="model.educationField" #educationField="ngModel" required>
-          <option *ngFor="let field of educationFields" [value]="field">{{field}}</option>
-        </select>
-      </div>
-    </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="companyPhone" placeholder="Ex. 555-555-5555" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="companyAddress" placeholder="Ex. 1 Main St, New York, NY" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
 
-    <!-- model.employmentStatus -->
-    <div class="form-group">
-      <label for="employmentStatus">Employment Status</label>
-      <select class="form-control"  id="employmentStatus" name="employmentStatus" [(ngModel)]="model.employmentStatus" #employmentStatus="ngModel" required>
-        <option *ngFor="let status of employmentStatuses" [value]="status">{{status}}</option>
-      </select>
-    </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
 
-    <!-- call applicantService and create new POST -->
-    <div class="form-group">
-      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">
-        Submit
-      </button>
-    </div>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
 
-  </form>
+    </mat-step>
+  </mat-stepper>
 </div>
-
-
-
-<!-- this is for the dropdown selector form -->
-        <!-- <div class="form-group">
-          <label for="power">Hero Power</label>
-          <select class="form-control"  id="power"
-                  required
-                  [(ngModel)]="model.power" name="power">
-            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-          </select>
-        </div> -->

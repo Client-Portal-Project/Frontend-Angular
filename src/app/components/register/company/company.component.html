@@ -7,6 +7,11 @@
         <mat-label>Company Name</mat-label>
         <input matInput formControlName="companyName" required>
       </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Company email</mat-label>
+        <input matInput formControlName="companyEmail" required>
+      </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -16,9 +21,13 @@
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="companyPhone" placeholder="Ex. 555-555-5555" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
         <mat-label>Address</mat-label>
-        <input matInput formControlName="companyEmail" placeholder="Ex. 1 Main St, New York, NY"
-               required>
+        <input matInput formControlName="companyAddress" placeholder="Ex. 1 Main St, New York, NY" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
