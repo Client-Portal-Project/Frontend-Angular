@@ -11,7 +11,7 @@ import { ResetemailComponent } from './components/resetemail/resetemail.componen
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
 import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
