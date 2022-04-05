@@ -1,12 +1,18 @@
-import { NgModule, Component, OnInit } from '@angular/core';
+import { NgModule, Component, OnInit, ViewChild } from '@angular/core';
 import { ApplicantService } from 'src/app/services/applicant.service';
 import { Applicant } from '../../../classes/applicant';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatStep, MatStepper } from '@angular/material/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-individual',
   templateUrl:'./individual.component.html',
-  styleUrls: ['./individual.component.css']
+  styleUrls: ['./individual.component.css'],
+  providers: [{
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false },
+    }],
 })
 export class IndividualComponent implements OnInit{
 
@@ -16,16 +22,15 @@ export class IndividualComponent implements OnInit{
   educationFields = ['Computer Science','Mathematics','Physics','Chemistry','Biology','Other']
   submitted = false;
   model: Applicant = new Applicant();
-  firstFormGroup: FormGroup;
+  firstName = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  lastName = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private _formBuilder: FormBuilder) {
-    this.firstFormGroup = new FormGroup({
-      resume: new FormControl('', Validators.required),
-      companyPhone: new FormControl('', Validators.required),
-      companyAddress: new FormControl('', Validators.required),
-    });
+
+  constructor() {
   }
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onSubmit(): void {
     this.submitted = true;

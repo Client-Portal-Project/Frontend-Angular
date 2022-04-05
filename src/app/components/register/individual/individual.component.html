@@ -1,54 +1,53 @@
 <div class="box">
   <mat-stepper orientation="vertical" #stepper>
-    <mat-step [stepControl]="firstFormGroup" errorMessage="Need to upload a file">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Upload your resume </ng-template>
+    <mat-step label="Upload your resume" state="phone">
 
-          <mat-form-field appearance="fill">
-            <mat-label>file upload</mat-label>
-            <div (click)="uploadFile.click()" class="custom-file-upload">
-              <button mat-raised-button color="primary">Choose File</button>
-              <input matInput #uploadFile formControlName="file"
-                placeholder="Upload your resume"
-                (change)="upload($event)"
-                type='file'/>
-            </div>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+      <div class="form-group">
+        <label for="resume">.png .jpg .pdf / less that 20mb</label>
+        <input type="file" class="form-control" id="resume" name="resume" placeholder="Resume" required>
+      </div>
 
-      </form>
+      <div class="form-group">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
     </mat-step>
-    <mat-step [stepControl]="firstFormGroup" errorMessage="Need the enter company email">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
+    <mat-step label="Tell us about yourself" state="chat">
 
-          <mat-form-field appearance="fill">
-            <mat-label>Phone</mat-label>
-            <input matInput formControlName="companyPhone" placeholder="Ex. 555-555-5555" required>
-          </mat-form-field>
-          <br>
-          <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput formControlName="companyAddress" placeholder="Ex. 1 Main St, New York, NY" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="First Name" [formControl]="firstName">
+        </div>
 
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Last Name" [formControl]="lastName">
+        </div>
 
-        <p>You are now done.</p>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" [formControl]="email">
+        </div>
+
+        <div class="form-group">
+          <button mat-button matStepperNext>Next</button>
         </div>
 
     </mat-step>
+    <mat-step>
+
+        <div class="form-group">
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+    </mat-step>
+
+    <!-- replace words with icons -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+
   </mat-stepper>
-</div>

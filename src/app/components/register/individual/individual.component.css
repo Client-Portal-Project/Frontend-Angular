@@ -1,58 +1,24 @@
 .box{
-  padding: 3px 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px #000;
-  margin: 20px;
-  margin-top: 0px;
+  box-shadow:
+  0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 #00000030;
+  min-width: 500px;
+  max-width: 60%;
+  margin: auto;
 }
-.form-group{
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.87);
-  border-radius: 5px;
-  margin: -2px;
-  box-shadow: 0px 0px 10px #000;
+.form-group > label{
+  font: normal 1.2em 'Roboto', sans-serif;
+  color: #eee;
 }
-.two-inputs{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-label{
-  font: bold 14px/30px 'Roboto', sans-serif;
-  margin: -8px;
-}
-header{
-  font: bold 30px/40px 'Roboto', sans-serif;
-}
-
-input[type="file"]{
-  display: none;
-}
-input[type="file"]:hover{
-  cursor: pointer;
-}
-textarea, select {
-  width: 100%;
-  padding: 12px 6px;
-  margin: 10px 5px;
-  transition-delay: .2s;
-  transition-duration: .6s;
-  border-radius: 5px;
+.form-group > input, .form-group > textarea, .form-group > select, .form-group > button{
   border: none;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.466);
-  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  background: #fff;
+  color: rgb(12, 12, 12);
 }
-textarea:hover, select:hover {
-  background-color: rgb(226, 226, 226);
+:host /deep/ .material-icons {
+  font-family: 'Material Icons' !important;
 }
 

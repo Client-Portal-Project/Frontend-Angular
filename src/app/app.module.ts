@@ -28,6 +28,7 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
 import { ApplicantComponent } from './components/main/applicant/applicant.component';
 import { RecruiterComponent } from './components/main/recruiter/recruiter.component';
 import { MainComponent } from './components/main/main.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MainComponent } from './components/main/main.component';
     MatButtonModule,
     MatDialogModule,
     MatStepperModule,
+    MatIconModule,
     ReactiveFormsModule,
     AuthModule.forRoot({
       domain: 'dev-0ocf6tyd.us.auth0.com',
@@ -67,9 +69,12 @@ import { MainComponent } from './components/main/main.component';
       cacheLocation: 'localstorage',
       useRefreshTokens: true
     }),
-
   ],
-  providers: [UtilService],
-  bootstrap: [AppComponent]
+  providers: [
+    UtilService,
+  ],
+  bootstrap: [
+    AppComponent,
+  ],
 })
 export class AppModule { }
