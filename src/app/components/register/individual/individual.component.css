@@ -40,13 +40,21 @@
     0 0 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.01);
 }
-.box > div>h5{
+.box>div>h5{
   margin: auto;
   min-width: 400px;
   max-width: 90%;
   font: bold 1.5em/2em 'Roboto', sans-serif;
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
+}
+.box>div>h5::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: .5em 0;
 }
 label[for="resume"]{
   margin: auto;
@@ -55,4 +63,13 @@ label[for="resume"]{
   font: bold 1em/1.5em 'Roboto', sans-serif;
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  margin-bottom: 1em;
+}
+input[type="file"]{
+  min-width: 400px;
+  max-width: 90%;
+  font: bold 1em/1.5em 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin-bottom: 2em;
 }
