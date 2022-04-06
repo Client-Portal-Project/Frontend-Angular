@@ -1,58 +1,58 @@
 .box{
-  padding: 3px 5px;
+  padding: 20px;
+  box-shadow:
+    0 0 16px rgba(0, 0, 0, 0.4),
+    0 4px 32px rgba(0, 0, 0, 0.4),
+    0 8px 64px rgba(0, 0, 0, 0.4),
+    0 16px 128px rgba(0, 0, 0, 0.4);
+  min-width: 500px;
+  max-width: 60%;
+  background: rgba(82, 82, 82, 0.41);
+  border-radius: 16px;
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border: 1px solid rgba(0, 0, 0, 0.329);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px #000;
-  margin: 20px;
-  margin-top: 0px;
+  margin: auto;
+  min-width: 500px;
+  max-width: 60%;
 }
-.form-group{
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.87);
-  border-radius: 5px;
-  margin: -2px;
-  box-shadow: 0px 0px 10px #000;
+.box > div, .box>div>*{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
 }
-.two-inputs{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.box > div > button{
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.404);
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 6px;
+  box-shadow:
+    0 0 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3em;
 }
-
-label{
-  font: bold 14px/30px 'Roboto', sans-serif;
-  margin: -8px;
+.box > div > button:hover, .box > div > button:focus, .box > div > button:active{
+  background-color: rgba(255, 255, 255, 0.452);
+  border-radius: 8px;
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
 }
-header{
-  font: bold 30px/40px 'Roboto', sans-serif;
+.box > div>h5{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
+  font: bold 1.5em/2em 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
-
-input[type="file"]{
-  display: none;
+label[for="resume"]{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
+  font: bold 1em/1.5em 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
 }
-input[type="file"]:hover{
-  cursor: pointer;
-}
-textarea, select {
-  width: 100%;
-  padding: 12px 6px;
-  margin: 10px 5px;
-  transition-delay: .2s;
-  transition-duration: .6s;
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.466);
-  border-radius: 5px;
-}
-textarea:hover, select:hover {
-  background-color: rgb(226, 226, 226);
-}
-

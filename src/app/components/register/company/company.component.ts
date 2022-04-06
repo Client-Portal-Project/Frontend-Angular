@@ -7,9 +7,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit {
-  isLinear = false;
   firstFormGroup: FormGroup;
-  resume: File | undefined;
 
   constructor(private _formBuilder: FormBuilder) {
     this.firstFormGroup = new FormGroup({
@@ -18,17 +16,12 @@ export class CompanyComponent implements OnInit {
       companyPhone: new FormControl('', Validators.required),
       companyAddress: new FormControl('', Validators.required),
     });
-    this.resume = undefined;
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
-    });
   }
 
   onFileSelected() {
     console.log("File selected");
-    this.resume = this.resume;
   }
 }

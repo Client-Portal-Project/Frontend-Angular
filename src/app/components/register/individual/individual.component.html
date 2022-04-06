@@ -1,66 +1,41 @@
-<div id="box" class="box">
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
-    <!-- header -->
-    <div class="form-group">
-      <header>Applicant</header>
-      <header>Registration</header>
-    </div>
+<div class="box">
 
-    <!-- model.resume -->
-    <div class="form-group">
-      <label for="resume">Upload your Resume</label>
-      <input type="file" name="resume" id="resume" [(ngModel)]="model.resume" #resume="ngModel" required>
-    </div>
-
-    <!-- model.aboutMe -->
-    <div class="form-group">
-      <label for="aboutMe">Tell me about yourself</label>
-      <textarea rows="6" cols="33" id="aboutMe" name="aboutMe" [(ngModel)]="model.aboutMe" #aboutMe="ngModel" required></textarea>
-    </div>
-
-    <div class="two-inputs">
-      <!-- model.educationLevel -->
+      <div><h5>Upload your resume</h5></div>
       <div class="form-group">
-        <label for="educationLevel">Education Level</label>
-        <select class="form-control"  id="educationLevel" name="educationLevel" [(ngModel)]="model.educationLevel" #educationLevel="ngModel" required>
-          <option *ngFor="let level of educationLevels" [value]="level">{{level}}</option>
-        </select>
+        <label for="resume">.png .jpg .pdf / less that 20mb</label>
+        <input type="file" class="form-control" id="resume" name="resume" placeholder="Resume" required [(ngModel)]="model.resume">
       </div>
-      <!-- model.educationField -->
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Tell us about yourself</mat-label>
+          <textarea matInput [(ngModel)]="model.aboutMe"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Education Field</mat-label>
+          <mat-select [(ngModel)]="model.educationField">
+            <mat-option *ngFor="let option of educationFields" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <DIV>
+        <mat-form-field appearance="outline">
+          <mat-label>Education Level</mat-label>
+          <mat-select [(ngModel)]="model.educationLevel">
+            <mat-option *ngFor="let option of educationLevels" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </DIV>
+      <div>
+        <mat-form-field appearance="outline">
+        <mat-label>Employment Status</mat-label>
+        <mat-select [(ngModel)]="model.employmentStatus">
+          <mat-option *ngFor="let option of employmentStatuses" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
       <div class="form-group">
-        <label for="educationField">Field of Education</label>
-        <select class="form-control"  id="educationField" name="educationField" [(ngModel)]="model.educationField" #educationField="ngModel" required>
-          <option *ngFor="let field of educationFields" [value]="field">{{field}}</option>
-        </select>
+        <button mat-button (click)="onSubmit()">Register</button>
       </div>
-    </div>
-
-    <!-- model.employmentStatus -->
-    <div class="form-group">
-      <label for="employmentStatus">Employment Status</label>
-      <select class="form-control"  id="employmentStatus" name="employmentStatus" [(ngModel)]="model.employmentStatus" #employmentStatus="ngModel" required>
-        <option *ngFor="let status of employmentStatuses" [value]="status">{{status}}</option>
-      </select>
-    </div>
-
-    <!-- call applicantService and create new POST -->
-    <div class="form-group">
-      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">
-        Submit
-      </button>
-    </div>
-
-  </form>
 </div>
-
-
-
-<!-- this is for the dropdown selector form -->
-        <!-- <div class="form-group">
-          <label for="power">Hero Power</label>
-          <select class="form-control"  id="power"
-                  required
-                  [(ngModel)]="model.power" name="power">
-            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-          </select>
-        </div> -->
