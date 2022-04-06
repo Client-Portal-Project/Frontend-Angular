@@ -29,6 +29,7 @@ import { MainComponent } from './components/main/main.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MatSelectModule } from '@angular/material/select';
     FileuploaderComponent,
     ApplicantComponent,
     RecruiterComponent,
-    MainComponent
+    MainComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,

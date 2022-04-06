@@ -1,3 +1,4 @@
+
 <app-navbar></app-navbar>
 <ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">
       <app-register></app-register>
@@ -15,9 +16,10 @@
     Here you can find the best <br> <br>
     <app-auth0login></app-auth0login> <br>
   </h1>
-
+  
 </ng-template>
-<!--
+
+<!-- </ng-template>
 <ng-container *ngIf="service.endpoint != null; else showthis">
   <h1> show me if real </h1>
 </ng-container>
