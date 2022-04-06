@@ -22,22 +22,12 @@ export class IndividualComponent implements OnInit{
   educationFields = ['Computer Science','Mathematics','Physics','Chemistry','Biology','Other']
   submitted = false;
   model: Applicant = new Applicant();
-  firstName = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  lastName = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  email = new FormControl('', [Validators.required, Validators.email]);
 
 
-  constructor() {
-  }
-  ngOnInit() {
-  }
-
+  constructor() {}
+  ngOnInit() {}
   onSubmit(): void {
     this.submitted = true;
     console.log(this.model);
-  }
-
-  upload(event:Event){
-   console.log(event)
   }
 }

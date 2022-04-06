@@ -1,24 +1,58 @@
 .box{
+  padding: 20px;
   box-shadow:
-  0 4px 8px 0 rgba(0, 0, 0, 0.2),
-  0 6px 20px 0 #00000030;
+    0 0 16px rgba(0, 0, 0, 0.4),
+    0 4px 32px rgba(0, 0, 0, 0.4),
+    0 8px 64px rgba(0, 0, 0, 0.4),
+    0 16px 128px rgba(0, 0, 0, 0.4);
   min-width: 500px;
   max-width: 60%;
-  margin: auto;
-}
-.form-group > label{
-  font: normal 1.2em 'Roboto', sans-serif;
-  color: #eee;
-}
-.form-group > input, .form-group > textarea, .form-group > select, .form-group > button{
-  border: none;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 4px;
-  background: #fff;
-  color: rgb(12, 12, 12);
-}
-:host /deep/ .material-icons {
-  font-family: 'Material Icons' !important;
-}
+  background: rgba(82, 82, 82, 0.41);
+  border-radius: 16px;
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border: 1px solid rgba(0, 0, 0, 0.329);
 
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-width: 500px;
+  max-width: 60%;
+}
+.box > div, .box>div>*{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
+}
+.box > div > button{
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.404);
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 6px;
+  box-shadow:
+    0 0 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3em;
+}
+.box > div > button:hover, .box > div > button:focus, .box > div > button:active{
+  background-color: rgba(255, 255, 255, 0.452);
+  border-radius: 8px;
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+.box > div>h5{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
+  font: bold 1.5em/2em 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+label[for="resume"]{
+  margin: auto;
+  min-width: 400px;
+  max-width: 90%;
+  font: bold 1em/1.5em 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
