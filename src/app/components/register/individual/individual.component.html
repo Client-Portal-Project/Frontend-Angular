@@ -36,6 +36,24 @@
     </mat-step>
     <mat-step>
 
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Textarea</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+
         <div class="form-group">
           <button mat-button matStepperNext>Next</button>
         </div>
@@ -48,6 +66,9 @@
     </ng-template>
     <ng-template matStepperIcon="chat">
       <mat-icon>forum</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="create">
+      <mat-icon>add</mat-icon>
     </ng-template>
 
   </mat-stepper>
