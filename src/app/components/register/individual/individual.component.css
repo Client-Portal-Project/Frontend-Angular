@@ -31,7 +31,7 @@
   border-radius: 6px;
   box-shadow:
     0 0 6px rgba(0, 0, 0, 0.4);
-  margin-bottom: 3em;
+  margin-top: 1em;
 }
 .box > div > button:hover, .box > div > button:focus, .box > div > button:active{
   background-color: rgba(255, 255, 255, 0.452);
@@ -63,7 +63,7 @@ label[for="resume"]{
   font: bold 1em/1.5em 'Roboto', sans-serif;
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  margin-bottom: 1em;
+  margin-top: 1em;
 }
 input[type="file"]{
   min-width: 400px;
@@ -71,5 +71,5 @@ input[type="file"]{
   font: bold 1em/1.5em 'Roboto', sans-serif;
   color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  margin-bottom: 2em;
+  margin-top: 2em;
 }
