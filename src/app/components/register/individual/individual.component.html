@@ -3,39 +3,54 @@
       <div><h5>Register as an applicant</h5></div>
       <div class="form-group">
         <label for="resume">Upload your resume<br>.png .jpg .pdf / less that 20mb</label>
-        <input type="file" class="form-control" id="resume" name="resume" placeholder="Resume" required [(ngModel)]="model.resume">
+        <input type="file"
+        class="form-control"
+        id="resume" name="resume" placeholder="Resume"
+        required accept=".doc,.docx,.pdf,.png,.jpg,.jpeg"
+        [(ngModel)]="model.resume">
       </div>
+      <br>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Tell us about yourself</mat-label>
-          <textarea matInput [(ngModel)]="model.aboutMe"></textarea>
+          <textarea matInput
+          [(ngModel)]="model.aboutMe">
+          </textarea>
         </mat-form-field>
       </div>
+
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Education Field</mat-label>
           <mat-select [(ngModel)]="model.educationField">
-            <mat-option *ngFor="let option of educationFields" [value]="option">{{ option }}</mat-option>
+            <mat-option *ngFor="let option of educationFields"
+            [value]="option">{{ option }}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
+
       <DIV>
         <mat-form-field appearance="outline">
           <mat-label>Education Level</mat-label>
           <mat-select [(ngModel)]="model.educationLevel">
-            <mat-option *ngFor="let option of educationLevels" [value]="option">{{ option }}</mat-option>
+            <mat-option *ngFor="let option of educationLevels"
+            [value]="option">{{ option }}</mat-option>
           </mat-select>
         </mat-form-field>
       </DIV>
+
       <div>
         <mat-form-field appearance="outline">
         <mat-label>Employment Status</mat-label>
         <mat-select [(ngModel)]="model.employmentStatus">
-          <mat-option *ngFor="let option of employmentStatuses" [value]="option">{{ option }}</mat-option>
+          <mat-option *ngFor="let option of employmentStatuses"
+          [value]="option">{{ option }}</mat-option>
         </mat-select>
       </mat-form-field>
       </div>
+
       <div class="form-group">
         <button mat-button (click)="onSubmit()">Register</button>
       </div>
+
 </div>

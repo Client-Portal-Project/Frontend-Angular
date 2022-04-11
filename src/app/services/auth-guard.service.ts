@@ -8,37 +8,37 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuardService implements CanActivate{
   routeURL: string = "";
-  constructor(private auth0: AuthService, private router: Router ) 
+  constructor(private auth0: AuthService, private router: Router )
   {
     this.routeURL = this.router.url;
   }
 
   //This method gets called in the router section in the App.Module section
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> 
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>
   {
-    return new Promise((resolve, reject) => 
+    return new Promise((resolve, reject) =>
     {
       //Here we check if a user is logged in with Auth0
       this.auth0.user$.subscribe(
         (user) =>
         {
-          // If they are not logged in, and they are not in the home page, 
+          // If they are not logged in, and they are not in the home page,
           // this will send them to the home page
           if (!user && this.routeURL !== "/landing")
           {
             this.routeURL = "/landing"
-            this.router.navigate(["/landing"], 
+            this.router.navigate(["/landing"],
             {
-              queryParams: 
+              queryParams:
               {
                 return: 'landing'
-              }    
-            });            
+              }
+            });
             return resolve(false);
           }
-          else 
+          else
           {
-            this.routeURL = this.router.url; 
+            this.routeURL = this.router.url;
             return resolve(true);
           }
         }

@@ -20,6 +20,14 @@ export class IndividualComponent implements OnInit{
   ngOnInit() {}
   onSubmit(): void {
     this.submitted = true;
-    this.applicantService.createApplicant(this.model);
+    this.applicantService.createApplicant(this.model).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
   }
 }

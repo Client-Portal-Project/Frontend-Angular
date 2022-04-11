@@ -2,7 +2,7 @@
 
     <section class="screen left">
 
-        <br><br><br><br>
+        <br><br><br>
         <ng-container *ngIf="clicked==1; else cclick">
           <a class="button column" (click)="leftClick()">close</a>
           <br><br><br>
@@ -19,10 +19,10 @@
 
     <section class="screen right">
 
-        <br><br><br><br>
+        <br><br><br>
         <ng-container *ngIf="clicked==2; else iclick">
           <a class="button column" (click)="rightClick()">close</a>
-          <br><br><br>
+          <br><br>
           <app-individual></app-individual>
         </ng-container>
 
