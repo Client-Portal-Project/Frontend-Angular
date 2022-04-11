@@ -20,5 +20,9 @@ export class ApplicantService {
     return this.httpclient.get<Applicant>(this.util.api(this.endpoint) + id);
   }
 
+  createApplicant(applicant: Applicant): Observable<Applicant> {
+    return this.httpclient.post<Applicant>(this.util.api(this.endpoint), applicant);
+  }
+
   // todo: create applicant service, create form for applicant, use service in form to create applicant in backend.
 }

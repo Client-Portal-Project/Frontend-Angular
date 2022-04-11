@@ -24,10 +24,10 @@ export class IndividualComponent implements OnInit{
   model: Applicant = new Applicant();
 
 
-  constructor() {}
+  constructor(private applicantService: ApplicantService) { }
   ngOnInit() {}
   onSubmit(): void {
     this.submitted = true;
-    console.log(this.model);
+    this.applicantService.createApplicant(this.model);
   }
 }
