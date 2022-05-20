@@ -12,12 +12,27 @@ export class UserService {
   constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
   endpoint = "user/"
 
+  login(email: string, password: string): Observable<any> {
+    return this.httpClient.post<any>(this.util.api("/clientportal/api/login"), {
+      email: email,
+      password: password
+    }, {observe: "response"});
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigateByUrl('');
+  }
+
+  //create login method
+
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
   createUser(user: User): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
+
   editUser(user: User): Observable<User> {
     return this.httpClient.put<User>(this.util.api(this.endpoint), user, {'headers': this.util.headers});
   }

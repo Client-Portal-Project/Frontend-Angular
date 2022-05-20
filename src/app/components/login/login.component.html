@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div>
+    <form class="container border shadow rounded my-5">
+        <div class="row">
+            <h2 class="col-12 fw-bolder text-center my-3">User Login</h2>
+            <div class="offset-1 col-10 d-flex flex-column my-3">
+                <input [ngClass]="{'border border-danger': _isEmpty && _email == ''}" class="form-control" type="text"
+                    placeholder="Email" [(ngModel)]='_email' name="email">
+            </div>
+            <div class="offset-1 col-10 d-flex flex-column my-3">
+                <input [ngClass]="{'border border-danger': _isEmpty && _password == ''}" class="form-control" type="password"
+                    placeholder="Password" [(ngModel)]='_password' name="password">
+            </div>
+            <div *ngIf="_isEmpty" class="d-flex justify-content-center text-danger my-3">Please fill out the fields
+                above!</div>
+            <div *ngIf="_isCredentialsIncorrect" class="d-flex justify-content-center text-danger my-3">Invalid Email
+                or Password</div>
+            <div *ngIf="_isCredentialsCorrect" class="d-flex justify-content-center text-success my-3">Log in
+                successful!</div>
+            <div *ngIf="_isCredentialsCorrect" class="offset-3 col-6 d-flex flex-column my-3">
+                <button class="btn btn-primary my-3" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
+            </div>
+
+            <div *ngIf="!_isCredentialsCorrect" class="offset-3 col-6 d-flex flex-column my-3">
+                <button type="submit" class="btn btn-primary fw-bold" (click)="login(_email, _password)">Log
+                    In</button>
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center my-2">
+                <a routerLink="/register">Register</a>
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center my-2">
+                <a class="mb-2" routerLink="/resetemail">Forgot Username?</a>
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center my-2">
+                <a class="mb-2" routerLink="/resetlogin">Forgot Password?</a>
+            </div>
+        </div>
+    </form>
+</div>
