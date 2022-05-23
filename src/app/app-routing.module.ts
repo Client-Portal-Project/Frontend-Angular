@@ -11,6 +11,7 @@ import { FileViewerComponent } from './components/file-viewer/file-viewer.compon
 import { ApplicantUploadComponent } from './components/applicant-upload/applicant-upload.component';
 import { MainComponent } from './components/main/main.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { LoginComponent } from './components/login/login.component';
 // import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},
   { path: "profile", component: ProfileFormComponent},
+  { path: "login", component: LoginComponent}
 //  { path: "auth0login", component: Auth0LoginComponent}
 ];
 
