@@ -1,6 +1,4 @@
-
-<app-navbar></app-navbar>
-<ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">
+<ng-container *ngIf="loggedIn; else loggedOut">
       <app-register></app-register>
 </ng-container>
 <ng-template #loggedOut>
@@ -14,9 +12,9 @@
 
   <h1 class="text-center">
     Here you can find the best <br> <br>
-    <app-auth0login></app-auth0login> <br>
+
+  <button class="btn btn-primary" routerLink="/login">Log in</button>
   </h1>
-  
 </ng-template>
 
 <!-- </ng-template>

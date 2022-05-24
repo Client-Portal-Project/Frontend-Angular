@@ -9,7 +9,28 @@ export class RegisterComponent {
 
   clicked: number = 0;
 
-  rightClick(){this.clicked=2; document.querySelector('.right')?.classList.add('clicked'); document.querySelector('.left')?.classList.remove('clicked');}
-    
-  leftClick(){this.clicked = 1; document.querySelector('.left')?.classList.add('clicked'); document.querySelector('.right')?.classList.remove('clicked');}
+  rightClick() {
+    if (this.clicked === 2) {
+      this.clicked = 0;
+      document.querySelector('.left')?.classList.remove('clicked');
+      document.querySelector('.right')?.classList.remove('clicked');
+    }
+    else {
+      this.clicked = 2;
+      document.querySelector('.right')?.classList.add('clicked');
+      document.querySelector('.left')?.classList.remove('clicked');
+    }
+  }
+  leftClick() {
+    if (this.clicked === 1) {
+      this.clicked = 0;
+      document.querySelector('.left')?.classList.remove('clicked');
+      document.querySelector('.right')?.classList.remove('clicked');
+    }
+    else {
+      this.clicked = 1;
+      document.querySelector('.left')?.classList.add('clicked');
+      document.querySelector('.right')?.classList.remove('clicked');
+    }
+  }
 }

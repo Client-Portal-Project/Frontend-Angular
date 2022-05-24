@@ -25,6 +25,7 @@ a{
 }
 a:hover{
     opacity: 1;
+    cursor: pointer;
     text-shadow: 0 2px 5px rgba(75, 75, 75, 0.426);
 }
 

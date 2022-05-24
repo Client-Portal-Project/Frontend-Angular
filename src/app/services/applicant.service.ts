@@ -11,7 +11,7 @@ export class ApplicantService {
 
   constructor(private httpclient: HttpClient, private util: UtilService) { }
 
-  endpoint = "/applicant/"
+  endpoint = "applicant/"
   getApplicants(): Observable<Applicant[]> {
     return this.httpclient.get<Applicant[]>(this.util.api(this.endpoint));
   }
@@ -20,5 +20,16 @@ export class ApplicantService {
     return this.httpclient.get<Applicant>(this.util.api(this.endpoint) + id);
   }
 
-  // todo: create applicant service, create form for applicant, use service in form to create applicant in backend.
+  createApplicant(applicant: Applicant): Observable<Applicant> {
+    return this.httpclient.post<Applicant>(this.util.api(this.endpoint), applicant);
+  }
+
+  updateApplicant(applicant: Applicant): Observable<Applicant> {
+    return this.httpclient.put<Applicant>(this.util.api(this.endpoint), applicant);
+  }
+
+  deleteApplicant(id: number): Observable<Applicant> {
+    return this.httpclient.delete<Applicant>(this.util.api(this.endpoint) + id);
+  }
+
 }

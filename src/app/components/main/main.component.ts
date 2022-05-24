@@ -34,7 +34,6 @@ export class MainComponent implements OnInit {
     image!.style.transition = "none";
     const x = event.clientX - image!.offsetLeft;
     const y = event.clientY - image!.offsetTop;
-    console.log(x, y);
 
     const mouseMoveListener = (event: MouseEvent) => {
       image!.style.left = event.clientX - x + 'px';
@@ -49,7 +48,6 @@ export class MainComponent implements OnInit {
       if (image_x! > half_parent! + 100) {
         image!.style.left = screen.width + image!.getBoundingClientRect().width + 'px';
         timer(500).subscribe(() => {
-          console.log("remove");
           this.potentials.splice(this.potentials.indexOf(imagename), 1);
           this.matches.push(imagename);
         });

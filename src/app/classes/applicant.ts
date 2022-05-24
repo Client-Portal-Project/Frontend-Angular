@@ -1,5 +1,5 @@
 export class Applicant {
-    constructor(
+  constructor(
       public resume: File | undefined = undefined,
       public aboutMe: string = '',
       public educationLevel: string = '',
