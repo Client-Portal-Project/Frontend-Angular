@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,15 +11,17 @@ export class NavbarComponent implements OnInit {
 
   menuOpen: boolean = false;
   loggedIn: boolean = false;
-  constructor(private userservice: UserService) { 
+  constructor(private router:Router, private userservice: UserService) { 
 
   }
   ngOnInit(): void {
     // this.menuBtn = document.querySelector('.menu-btn');
     // this.menuShown = document.querySelector('.collapse');
-    if(sessionStorage.getItem('JWT')) {
-      this.loggedIn = true;
-    }
+    this.router.events.subscribe(event => {
+      if (event.constructor.name === "NavigationEnd") {
+        this.loggedIn = this.userservice.isLoggedIn;
+      }
+    })
   }
 
   toggleMenu() {

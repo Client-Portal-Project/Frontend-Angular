@@ -12,15 +12,15 @@
 
 <div class="collapse" [ngClass]="{'open': menuOpen, 'show': menuOpen}">
     <div class="navbar-collapse">    
-        <a class="nav-link text-white text-center" routerLink="">Home</a>
-        <a class="nav-link text-white text-center" routerLink="/about">About Us</a>
-        <a class="nav-link text-white text-center" routerLink="/clientskills">Client Req's</a>
+        <a class="nav-link text-white text-center" (click)="toggleMenu()" routerLink="">Home</a>
+        <a class="nav-link text-white text-center" (click)="toggleMenu()" routerLink="/about">About Us</a>
+        <a class="nav-link text-white text-center" (click)="toggleMenu()" routerLink="/clientskills">Client Req's</a>
         <ng-container *ngIf="loggedIn; else loggedOut">
             <a class="nav-link text-white text-center" (click)="logout()">Log Out</a>
         </ng-container>
         <ng-template #loggedOut>
-            <a class="nav-link text-white text-center" routerLink="/login">Login</a>
-            <a class="nav-link text-white text-center" routerLink="/register">Register</a>
+            <a class="nav-link text-white text-center" (click)="toggleMenu()" routerLink="/login">Login</a>
+            <a class="nav-link text-white text-center" (click)="toggleMenu()" routerLink="/register">Register</a>
         </ng-template>
 </div>  
         <!-- <ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">

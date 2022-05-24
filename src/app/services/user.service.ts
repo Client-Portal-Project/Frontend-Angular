@@ -9,11 +9,14 @@ import { User } from 'src/app/classes/user';
   providedIn: 'root'
 })
 export class UserService {
+
+  isLoggedIn: boolean = false;
+
   constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
   endpoint = "user/"
 
   login(email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(this.util.api("/clientportal/api/login"), {
+    return this.httpClient.post<any>(this.util.api(`${this.endpoint}login`), {
       email: email,
       password: password
     }, {observe: "response"});
