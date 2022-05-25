@@ -38,5 +38,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.userservice.logout();
     this.loggedIn = false;
+    this.toggleMenu();
   }
 }

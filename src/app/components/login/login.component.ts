@@ -58,6 +58,7 @@ export class LoginComponent {
   }
 
   resetFields() {
+    this.router.navigate(["/reset-password"]);
     this._email = '';
     this._password = '';
   }

@@ -12,10 +12,10 @@ import { ApplicantUploadComponent } from './components/applicant-upload/applican
 import { MainComponent } from './components/main/main.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { LoginComponent } from './components/login/login.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 // import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
   { path: 'about', component: AboutComponent },
   { path: 'clientskills', component: ClientSkillsComponent },
   { path: 'applicantdocs', component: ApplicantUploadComponent },
@@ -26,7 +26,10 @@ const routes: Routes = [
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},
   { path: "profile", component: ProfileFormComponent},
-  { path: "login", component: LoginComponent}
+  { path: "login", component: LoginComponent},
+  { path: "reset-password", component: ResetPasswordComponent},
+  { path: '', component: LandingComponent },
+  // { path: "*", component: NotFoundPageComponent},
 //  { path: "auth0login", component: Auth0LoginComponent}
 ];
 
