@@ -4,8 +4,13 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/clientportal/'
-};
+  apiUrl: 'http://localhost:8080/clientportal',
+  headerDict: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  },
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

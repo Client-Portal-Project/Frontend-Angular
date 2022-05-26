@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { UtilService } from './services/util.service';
 import { AboutComponent } from './components/about/about.component';
 import { CompanyComponent } from './components/register/company/company.component';
 import { IndividualComponent } from './components/register/individual/individual.component';
@@ -77,9 +76,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     //   useRefreshTokens: true
     // }),
   ],
-  providers: [
-    UtilService,
-  ],
+  providers: [],
   bootstrap: [
     AppComponent,
   ],

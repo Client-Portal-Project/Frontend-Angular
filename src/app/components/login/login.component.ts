@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
-import { UtilService } from 'src/app/services/util.service';
+import { environment } from 'src/environments/environment.prod';
+import { UserService } from '../../services/user/user.service';
+//import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   _isCredentialsIncorrect: boolean = false;
   _isEmpty: boolean = false;
 
-  constructor(private utilService: UtilService, private userService: UserService, private router: Router) { }
+  constructor( private userService: UserService, private router: Router) { }
 
   login(email: string, password: string) {
     // Email and passwords fields are entered
@@ -25,8 +26,13 @@ export class LoginComponent {
       this.userService.login(email, password).subscribe(response => {
         this.resetFields();
         // Successful login, token and userId will be stored in sessionStorage
-        this.utilService.storeSession(response.body.userId, 
-          response.headers.get("authorization"));
+        // this.utilService.storeSession(response.body.userId, 
+        //   response.headers.get("authorization"));
+        const jwt = response.headers.get("authorization");
+        const userId = response.body.userId
+        sessionStorage.setItem('JWT', jwt);
+        sessionStorage.setItem('user', userId);
+
         this._isCredentialsCorrect = true;
         this._isCredentialsIncorrect = false; 
         
@@ -38,6 +44,7 @@ export class LoginComponent {
         // With correct credentials, the page will "load" to the next page in one second
         if (this._isCredentialsCorrect) {
           this.userService.isLoggedIn = true;
+          environment.requestOptions.headers.set('authorization', jwt)
           setTimeout(() => {
             this.router.navigateByUrl('');
           }, 1000);

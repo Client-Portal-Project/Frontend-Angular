@@ -1,9 +1,8 @@
 <div class="reset-form">
     <mat-form-field appearance="outline">
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <button mat-button [disabled]="!email.valid">Reset Password</button>
 </div>
-

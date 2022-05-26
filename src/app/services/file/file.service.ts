@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ResponeMessage } from '../classes/ResponseMessage';
+import { ResponeMessage } from 'src/app/classes/ResponseMessage';
 
 @Injectable({
   providedIn: 'root'

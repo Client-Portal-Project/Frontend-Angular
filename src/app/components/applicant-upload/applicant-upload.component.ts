@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileuploaderComponent } from 'src/app/components/fileuploader/fileuploader.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FileService } from 'src/app/services/file.service';
+import { FileService } from '../../services/file/file.service';
 @Component({
   selector: 'app-applicant-upload',
   templateUrl: './applicant-upload.component.html',
