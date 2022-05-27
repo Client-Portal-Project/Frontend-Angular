@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { User } from 'src/app/classes/user';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -9,33 +11,30 @@ import { User } from 'src/app/classes/user';
 })
 
 export class LandingComponent {
-  loggedIn: boolean;
 
-  constructor(private service: UserService) {
-    if(sessionStorage.getItem('user')) {
-      this.loggedIn = true;
-    } else {
-      this.loggedIn = false;
-    }
-    // this.auth0.user$.subscribe(user => {
-    //   this.service.createUser(new User(
-    //     user?.email,
-    //     user?.email_verified,
-    //     user?.family_name,
-    //     user?.given_name,
-    //     user?.name,
-    //     user?.nickname,
-    //     user?.picture,
-    //     user?.phone_number,
-    //     user?.phone_number_verified,
-    //     user?.birthdate)).subscribe()}, err => {console.log("error")}, () => {console.log("other")});
+  _firstName: string = '';
+  _lastName: string = '';
+  _email: string = '';
+  _password: string = '';
+  _confirmPassword: string = '';
+  _isCredentialsCorrect: boolean = false;
+  _isCredentialsIncorrect: boolean = false;
+  _isEmpty: boolean = false;
+  registerForm!: FormGroup;
 
-        // if(user){
-        //   usr = new User(user.email!, user.family_name!, user.given_name!, user.name!, user.nickname!, user.picture!, user.sub!, user.updated_at!);
-        //   console.log(user.email, user.family_name, user.given_name, user.name, user.nickname, user.picture, user.sub, user.updated_at);
-          // this.service.editUser(user).subscribe(
-          //   (data: User) => {
-          //     console.log(data);
-          //   }
-          // );
-}}
+  constructor( private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
+  
+  ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      firstName : new FormControl('', Validators.required), 
+      lastName : new FormControl('',Validators.required),
+      password : new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
+      confirmPassword : new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),  
+      email : new FormControl('', [Validators.required, Validators.email])
+    })
+  }
+  
+  register() {
+    console.log(this.registerForm.value);
+  }
+}
