@@ -13,15 +13,16 @@ import { MainComponent } from './components/main/main.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UserComponent } from './components/register/user/user.component';
 // import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'clientskills', component: ClientSkillsComponent },
   { path: 'applicantdocs', component: ApplicantUploadComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'register/company', component: CompanyComponent },
-  { path: 'register/individual', component: IndividualComponent },
+  { path: 'register', component: UserComponent },
+  // { path: 'register/company', component: CompanyComponent },
+  // { path: 'register/individual', component: IndividualComponent },
   { path: "upload", component: FileuploaderComponent},
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},

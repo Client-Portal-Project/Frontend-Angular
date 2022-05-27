@@ -1,8 +1,63 @@
-<div class="reset-form">
-    <mat-form-field appearance="outline">
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <button mat-button [disabled]="!email.valid">Reset Password</button>
+<div>
+  <form [formGroup]="registerForm" class="container border shadow rounded my-5">
+    <div class="row">
+      <h2 class="col-12 fw-bolder text-center my-3">Register</h2>
+      <div class="offset-1 col-10 d-flex flex-column my-3">
+        <label for="firstName">First Name  <div class="input-container">
+          <p class="tooltip-icon" data-toggle="tooltip" data-placement="top"
+            title="First Name required"><mat-icon>help_outline</mat-icon></p>
+        </div></label>
+          <input [ngClass]="{'border border-danger': _isEmpty && _firstName == ''}" class="form-control" type="text"
+          placeholder="First Name" id="firstName" name="firstName" formControlName="firstName">
+      </div>
+      <div class="offset-1 col-10 d-flex flex-column my-3">
+        <label for="lastName">Last Name <div class="input-container">
+          <p class="tooltip-icon" data-toggle="tooltip" data-placement="top"
+            title="Last Name required"><mat-icon>help_outline</mat-icon>
+          </p>
+        </div></label>
+        <input [ngClass]="{'border border-danger': _isEmpty && _lastName == ''}" class="form-control" type="text"
+          placeholder="Last Name" name="lastname" formControlName="lastName">
+      </div>
+      <div class="offset-1 col-10 d-flex flex-column my-3">
+        <label for="email">Email <div class="input-container">
+          <p class="tooltip-icon" data-toggle="tooltip" data-placement="top"
+            title="Please enter a valid email address."><mat-icon>help_outline</mat-icon></p>
+        </div></label>
+        <input [ngClass]="{'border border-danger': _isEmpty && _email == ''}" class="form-control" type="text"
+          placeholder="Email" id="email" name="email" formControlName="email">
+      </div>
+      <div class="offset-1 col-10 d-flex flex-column my-3">
+        <label for="password">Password <div class="input-container">
+          <p class="tooltip-icon" data-toggle="tooltip" data-placement="top"
+            title="Password must be between 8 and 16 characters in length."><mat-icon>help_outline</mat-icon></p>
+        </div></label>
+        <input [ngClass]="{'border border-danger': _isEmpty && _password == ''}" class="form-control" type="password"
+          placeholder="Password" id="password" name="password" formControlName="password">
+      </div>
+      <div class="offset-1 col-10 d-flex flex-column my-3">
+        <label for="confirmPassword">Confirm Password <div class="input-container">
+          <p class="tooltip-icon" data-toggle="tooltip" data-placement="top"
+            title="Passwords must match."><mat-icon>help_outline</mat-icon></p>
+        </div></label>
+        <input [ngClass]="{'border border-danger': _isEmpty && _confirmPassword == ''}" class="form-control"
+          type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword"
+          formControlName="confirmPassword">
+      </div>
+      <div *ngIf="_isEmpty" class="d-flex justify-content-center text-danger my-3">Please fill out the fields
+        above!</div>
+      <div *ngIf="_isCredentialsCorrect" class="d-flex justify-content-center text-success my-3">Registration
+        Successful!</div>
+      <div *ngIf="_isCredentialsCorrect" class="offset-3 col-6 d-flex flex-column my-3">
+        <button class="btn btn-primary my-3">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="offset-3 col-6 d-flex flex-column my-3">
+        <button type="submit" class="btn btn-primary fw-bold" (click)="register()"
+          [disabled]="!registerForm.valid">Register</button>
+      </div>
+    </div>
+  </form>
 </div>

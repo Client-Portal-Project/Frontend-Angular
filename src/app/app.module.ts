@@ -31,6 +31,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UserComponent } from './components/register/user/user.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     MainComponent,
     ProfileFormComponent,
     LoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent, 
+    UserComponent
   ],
   imports: [
     BrowserModule,

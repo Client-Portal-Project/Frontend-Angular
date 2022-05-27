@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user/user.service';
-import { UtilService } from '../../../services/util/util.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-user',
@@ -11,19 +11,29 @@ import { UtilService } from '../../../services/util/util.service';
 })
 export class UserComponent implements OnInit {
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  _firstName: string = '';
+  _lastName: string = '';
+  _email: string = '';
+  _password: string = '';
+  _confirmPassword: string = '';
+  _isCredentialsCorrect: boolean = false;
+  _isCredentialsIncorrect: boolean = false;
+  _isEmpty: boolean = false;
+  registerForm!: FormGroup;
 
-  constructor() {
-  }
+  constructor( private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
+  
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      firstName : new FormControl('', Validators.required), 
+      lastName : new FormControl('',Validators.required),
+      password : new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
+      confirmPassword : new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),  
+      email : new FormControl('', [Validators.required, Validators.email])
+    })
   }
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  
+  register() {
+    console.log(this.registerForm.value);
   }
-
 }
