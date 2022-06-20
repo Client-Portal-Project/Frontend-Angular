@@ -19,6 +19,8 @@
             <div class="mb-3">
               <label class="form-label">Password</label>
               <input type="text" id="password" class="form-control" formControlName="password">
+              <label class="form-label">Confirm password</label>
+              <input type="password" id="passTest" class="form-control" formControlName="pwTest">
             </div>
             <div class="mb-3">
               <label class="form-label">First Name</label>
@@ -29,8 +31,6 @@
               <input type="text" id="lastName" class="form-control" formControlName="lastName">
             </div>
             <div class="mb-3">
-              <label class="form-label">Confirm password</label>
-              <input type="password" id="passTest" class="form-control" formControlName="pwTest">
               <button class="btn btn-primary btn-lg btn-block" id="userSubmit" (click)="registerUser(registerForm)"
                 [routerLink]="['/login']">Create account</button>
             </div>
