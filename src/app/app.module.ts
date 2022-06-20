@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-// import { AuthModule } from '@auth0/auth0-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +19,6 @@ import { AboutComponent } from './components/about/about.component';
 import { CompanyComponent } from './components/register/company/company.component';
 import { IndividualComponent } from './components/register/individual/individual.component';
 import { ClientSkillsComponent } from './components/client-skills/client-skills.component';
-// import { Auth0LoginComponent } from './components/auth0login/auth0login.component';
 import { FileuploaderComponent } from './components/fileuploader/fileuploader.component';
 import { FileViewerComponent } from './components/file-viewer/file-viewer.component';
 import { ApplicantComponent } from './components/main/applicant/applicant.component';
@@ -42,7 +40,6 @@ import { LoginComponent } from './components/login/login.component';
     CompanyComponent,
     IndividualComponent,
     ClientSkillsComponent,
-    // Auth0LoginComponent,
     FileViewerComponent,
     FileuploaderComponent,
     ApplicantComponent,
@@ -66,15 +63,8 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     MatOptionModule,
     MatSelectModule,
-    ReactiveFormsModule,
-    MatOptionModule,
-    // AuthModule.forRoot({
-    //   domain: 'dev-0ocf6tyd.us.auth0.com',
-    //   clientId: '6i8GqUJ23MVwdfCzg9VwZtAGrx8wtVxu',
-    //   cacheLocation: 'localstorage',
-    //   useRefreshTokens: true
-    // }),
-  ],
+    ReactiveFormsModule
+    ],
   providers: [
     UtilService,
   ],
