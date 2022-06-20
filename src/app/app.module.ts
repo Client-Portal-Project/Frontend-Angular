@@ -64,7 +64,7 @@ import { LoginComponent } from './components/login/login.component';
     MatOptionModule,
     MatSelectModule,
     ReactiveFormsModule
-    ],
+  ],
   providers: [
     UtilService,
   ],

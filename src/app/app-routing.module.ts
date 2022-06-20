@@ -25,7 +25,8 @@ const routes: Routes = [
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},
   { path: "profile", component: ProfileFormComponent},
-  { path: "login", component: LoginComponent}
+  { path: "login", component: LoginComponent},
+  { path: "profile-form", component: ProfileFormComponent}
 ];
 
 @NgModule({
