@@ -15,11 +15,11 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileFormComponent implements OnInit {
 
   registerForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    pwTest: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    email: new FormControl,
+    password: new FormControl,
+    pwTest: new FormControl,
+    firstName: new FormControl,
+    lastName: new FormControl,
 
   });
   constructor(private _userService: UserService, private router: Router) {
@@ -28,11 +28,18 @@ export class ProfileFormComponent implements OnInit {
   ngOnInit(): void {
   }
   registerUser(registerForm: FormGroup) {
-    if (this.registerForm.get('password')?.value != this.registerForm.get('passTest')?.value || this.registerForm.get('password')?.value == null)
+    if (this.registerForm.get('password')?.value != this.registerForm.get('pwTest')?.value || this.registerForm.get('password')?.value == null)
       this.router.navigate(['/profile-form']);
     else {
-      let sessUser: User = new User(this.registerForm.get('email').value, this.registerForm.get('password')?.value, false,
-        this.registerForm.get('firstName')?.value, this.registerForm.get('lastName')?.value);
+      let sessUser:
+        User = new User(
+          this.registerForm.get('email')!.value,
+          this.registerForm.get('password')!.value,
+          this.registerForm.get('pwTest')?.value,
+          this.registerForm.get('firstName')?.value,
+          this.registerForm.get('lastName')?.value
+        );
+
       let userT = JSON.stringify(sessUser);
       this._userService.createUser(userT).subscribe(
         response => {
@@ -44,8 +51,4 @@ export class ProfileFormComponent implements OnInit {
       )
     }
   }
-
-
 }
-
-
