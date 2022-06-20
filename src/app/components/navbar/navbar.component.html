@@ -20,18 +20,9 @@
         </ng-container>
         <ng-template #loggedOut>
             <a class="nav-link text-white text-center" routerLink="/login">Login</a>
-            <a class="nav-link text-white text-center" routerLink="/register">Register</a>
+            <a class="nav-link text-white text-center" routerLink="/profile-form">Register</a>
         </ng-template>
 </div>  
-        <!-- <ng-container *ngIf="auth0.isAuthenticated$ | async; else loggedOut">
-    <button class="btn btn-danger" (click)="auth0.logout({ returnTo: document.location.origin})">
-        Log out
-    </button>
-</ng-container>
-
-<ng-template #loggedOut>
-    <button class="btn btn-primary" (click)="auth0.loginWithPopup()">Log in</button>
-</ng-template> -->
         <br>        
         <!-- <a class="nav-link text-white" routerLink="/resetemail">Forgot Email</a>
         <a class="nav-link text-white" routerLink="/resetlogin">Forgot Password</a>

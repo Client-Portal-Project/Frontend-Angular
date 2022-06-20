@@ -18,7 +18,9 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Password</label>
-              <input type="text" id="password" class="form-control" formControlName="password">
+              <input type="password" id="password" class="form-control" formControlName="password">
+            </div>
+            <div>
               <label class="form-label">Confirm password</label>
               <input type="password" id="passTest" class="form-control" formControlName="pwTest">
             </div>
@@ -32,7 +34,7 @@
             </div>
             <div class="mb-3">
               <button class="btn btn-primary btn-lg btn-block" id="userSubmit" (click)="registerUser(registerForm)"
-                [routerLink]="['/login']">Create account</button>
+                [routerLink]="['/register']">Create account</button>
             </div>
           </form>
 
