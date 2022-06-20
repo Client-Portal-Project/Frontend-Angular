@@ -1,6 +1,11 @@
+import { NonNullAssert } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { fromEventPattern } from 'rxjs';
+import { User } from 'src/app/classes/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile-form',
@@ -10,35 +15,37 @@ import { fromEventPattern } from 'rxjs';
 export class ProfileFormComponent implements OnInit {
 
   registerForm = new FormGroup({
-    email:new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl(''),
     pwTest: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    
+
   });
-  constructor() { }
+  constructor(private _userService: UserService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
-  registerUser(registerForm: FormGroup){
-    if(this.registerForm.get('pass')?.value != this.registerForm.get('passTest')?.value || this.registerForm.get('pass')?.value == null)
-    this.router.navigate(['/register']);
-  else {
-  let sessUser: User = new User(this.registerForm.get('email')?.value, this.registerForm.get('pass')?.value, this.registerForm.get('firstName')?.value,
-  this.registerForm.get('lastName')?.value, this.registerForm.get('biography')?.value);
-  let userT = JSON.stringify(sessUser); 
-  this.userServ.registerUser(userT).subscribe(
-    response => {
-      console.log("Great success.");
-    },
-    error =>{
-      console.warn("An error has occurred");
+  registerUser(registerForm: FormGroup) {
+    if (this.registerForm.get('password')?.value != this.registerForm.get('passTest')?.value || this.registerForm.get('password')?.value == null)
+      this.router.navigate(['/profile-form']);
+    else {
+      let sessUser: User = new User(this.registerForm.get('email').value, this.registerForm.get('password')?.value, false,
+        this.registerForm.get('firstName')?.value, this.registerForm.get('lastName')?.value);
+      let userT = JSON.stringify(sessUser);
+      this._userService.createUser(userT).subscribe(
+        response => {
+          console.log("Great success.");
+        },
+        error => {
+          console.warn("An error has occurred");
+        }
+      )
     }
-  )}
-}
-
-
   }
+
+
+}
 
 

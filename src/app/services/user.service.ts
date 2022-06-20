@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UtilService } from './util.service';
 import { User } from 'src/app/classes/user';
+import { UtilService } from './util.service';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class UserService {
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
-  createUser(user: User): Observable<User> {
+  createUser(user: String): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
 
