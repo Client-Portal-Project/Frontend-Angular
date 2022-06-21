@@ -35,7 +35,7 @@ export class ProfileFormComponent implements OnInit {
         User = new User(
           this.registerForm.get('email')!.value,
           this.registerForm.get('password')!.value,
-          this.registerForm.get('pwTest')?.value,
+          this.registerForm.get('pwTest')!.value,
           this.registerForm.get('firstName')?.value,
           this.registerForm.get('lastName')?.value
         );
