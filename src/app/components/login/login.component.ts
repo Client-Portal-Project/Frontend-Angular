@@ -37,7 +37,7 @@ export class LoginComponent {
 
         // With correct credentials, the page will "load" to the next page in one second
         if (this._isCredentialsCorrect) {
-          setTimeout(() => {
+          setTimeout(() => { 
             this.router.navigateByUrl('');
           }, 1000);
         }
