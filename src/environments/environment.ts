@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   apiUrl: 'http://localhost:8080/clientportal'
+=======
+  //apiUrl: 'http://localhost:4200'
+  apiUrl: 'http://localhost:8080'
+>>>>>>> d3e1080af9c5477f597c98300e69f8387718a8f4
 };
 
 /*

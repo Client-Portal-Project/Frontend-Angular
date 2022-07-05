@@ -13,7 +13,11 @@ export class UserService {
   endpoint = "/user/"
 
   login(email: string, password: string): Observable<any> {
+<<<<<<< HEAD
     return this.httpClient.post<any>(this.util.api("/user/login"), {
+=======
+    return this.httpClient.post<any>(this.util.api("/clientportal/user/login"), {
+>>>>>>> d3e1080af9c5477f597c98300e69f8387718a8f4
       email: email,
       password: password
     }, {observe: "response"});
