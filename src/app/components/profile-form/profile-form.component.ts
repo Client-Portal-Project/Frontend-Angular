@@ -29,7 +29,7 @@ export class ProfileFormComponent implements OnInit {
   }
   registerUser(registerForm: FormGroup) {
     if (this.registerForm.get('password')?.value != this.registerForm.get('pwTest')?.value || this.registerForm.get('password')?.value == null)
-      this.router.navigate(['/profile-form']);
+      this.router.navigate(['/clientproject/profile-form']);
     else {
       let sessUser:
         User = new User(
