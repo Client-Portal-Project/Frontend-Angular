@@ -3,11 +3,12 @@ export class User {
     constructor(
         public email: string,
         public password?: string,
-        public approved?: Boolean, 
-        public firstName?: string, 
-        public lastName?: string 
-        //public userId?: number
-        /* public email_verified: boolean | undefined,
+        //public userId?: number,
+        public firstName?: string,
+        public lastName?: string,
+        public approved?: Boolean       
+        
+    /* public email_verified: boolean | undefined,
         public family_name: string | undefined,
         public given_name: string | undefined,
         public name: string | undefined,
@@ -15,7 +16,8 @@ export class User {
         public picture: string | undefined,
         public phone_number: string | undefined,
         public phone_number_verified: boolean | undefined,
-        public birthdate: string | undefined */
+        public birthdate: string | undefined 
+    */
     ) { }
 
 }

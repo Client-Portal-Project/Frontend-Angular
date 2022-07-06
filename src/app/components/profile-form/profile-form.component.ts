@@ -35,12 +35,15 @@ export class ProfileFormComponent implements OnInit {
         User = new User(
           this.registerForm.get('email')!.value,
           this.registerForm.get('password')!.value,
-          this.registerForm.get('pwTest')!.value,
+          //this.registerForm.get('pwTest')!.value,
           this.registerForm.get('firstName')?.value,
-          this.registerForm.get('lastName')?.value
+          this.registerForm.get('lastName')?.value,
+          
         );
 
       let userT = JSON.stringify(sessUser);
+      console.log("The JSON String is: "+userT);
+
       this._userService.createUser(userT).subscribe(
         response => {
                     
