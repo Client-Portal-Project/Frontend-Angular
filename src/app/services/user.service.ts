@@ -29,7 +29,7 @@ export class UserService {
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
-  createUser(user: String): Observable<User> {
+  createUser(user: string): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
 

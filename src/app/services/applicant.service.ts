@@ -11,7 +11,7 @@ export class ApplicantService {
 
   constructor(private httpclient: HttpClient, private util: UtilService) { }
 
-  endpoint = "/applicant/"
+  endpoint = "/clientportal/applicant/"
   getApplicants(): Observable<Applicant[]> {
     return this.httpclient.get<Applicant[]>(this.util.api(this.endpoint));
   }

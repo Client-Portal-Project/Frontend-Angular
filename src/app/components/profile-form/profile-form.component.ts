@@ -46,10 +46,11 @@ export class ProfileFormComponent implements OnInit {
 
       this._userService.createUser(userT).subscribe(
         response => {
-                    
+          this.router.navigate(['/register']);//  when sucesfulll change uri to register comp.
           console.log("Great success.");
         },
         error => {
+          this.router.navigate(['/profile']);
           console.warn("An error has occurred");
         }
       )
