@@ -25,19 +25,21 @@ export class LoginComponent {
       this.userService.login(email, password).subscribe(response => {
         this.resetFields();
         // Successful login, token and userId will be stored in sessionStorage
+        alert("Success");
         this.utilService.storeSession(response.body.userId, 
           response.headers.get("authorization"));
         this._isCredentialsCorrect = true;
         this._isCredentialsIncorrect = false; 
         
         if(response == null) {
+          alert("Not getting a response");
           this._isCredentialsCorrect = false;
           this._isCredentialsIncorrect = true;
         }
 
         // With correct credentials, the page will "load" to the next page in one second
         if (this._isCredentialsCorrect) {
-          setTimeout(() => {
+          setTimeout(() => { 
             this.router.navigateByUrl('');
           }, 1000);
         }
@@ -45,12 +47,14 @@ export class LoginComponent {
       })
       
       // Incorrect email or password
-      this._isCredentialsCorrect = false;
-      this._isCredentialsIncorrect = true;
+      //alert("Incorrect Email or passord");
+      this._isCredentialsCorrect = true;
+      this._isCredentialsIncorrect = false;
       
     } 
     // Email or password fields are empty
     else {
+      alert("It is not working");
       this._isCredentialsIncorrect = false;
       this._isEmpty = true;
     }

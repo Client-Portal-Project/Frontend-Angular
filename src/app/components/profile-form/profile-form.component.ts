@@ -29,20 +29,24 @@ export class ProfileFormComponent implements OnInit {
   }
   registerUser(registerForm: FormGroup) {
     if (this.registerForm.get('password')?.value != this.registerForm.get('pwTest')?.value || this.registerForm.get('password')?.value == null)
-      this.router.navigate(['/profile-form']);
+      this.router.navigate(['/clientproject/profile-form']);
     else {
       let sessUser:
         User = new User(
           this.registerForm.get('email')!.value,
           this.registerForm.get('password')!.value,
-          this.registerForm.get('pwTest')!.value,
+          //this.registerForm.get('pwTest')!.value,
           this.registerForm.get('firstName')?.value,
-          this.registerForm.get('lastName')?.value
+          this.registerForm.get('lastName')?.value,
+          
         );
 
       let userT = JSON.stringify(sessUser);
+      console.log("The JSON String is: "+userT);
+
       this._userService.createUser(userT).subscribe(
         response => {
+                    
           console.log("Great success.");
         },
         error => {
