@@ -16,4 +16,4 @@ FROM nginx:latest
 
 COPY --from=build /usr/local/app/dist/project-x /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 8080
