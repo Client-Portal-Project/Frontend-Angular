@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { User } from 'src/app/classes/user';
 import { UtilService } from './util.service';
 
@@ -29,7 +29,7 @@ export class UserService {
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
-  createUser(user: string): Observable<User> {
+  createUser(user: Object): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
 

@@ -6,7 +6,7 @@ export class User {
         //public userId?: number,
         public firstName?: string,
         public lastName?: string,
-        public approved?: Boolean       
+        public approved?: Boolean           
         
     /* public email_verified: boolean | undefined,
         public family_name: string | undefined,

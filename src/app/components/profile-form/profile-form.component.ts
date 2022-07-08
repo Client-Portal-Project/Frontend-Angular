@@ -41,7 +41,8 @@ export class ProfileFormComponent implements OnInit {
           
         );
 
-      let userT = JSON.stringify(sessUser);
+      console.log (sessUser);
+      let userT = sessUser;//JSON.stringify(sessUser);
       console.log("The JSON String is: "+userT);
 
       this._userService.createUser(userT).subscribe(
