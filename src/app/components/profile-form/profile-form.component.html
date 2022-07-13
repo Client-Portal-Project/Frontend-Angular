@@ -1,21 +1,53 @@
 <main>
 
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-          <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+            alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form [formGroup]="registerForm" type="text" class="some-class" id="center">
+            <label class="title">Create an Account</label>
+            <br>
+            <br>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" formControlName="email" name="email">
             </div>
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password">
+            </div>
+            <div>
+              <label class="form-label">Confirm password</label>
+              <input type="password" id="passTest" class="form-control" formControlName="pwTest">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">First Name</label>
+              <input type="text" id="firstName" class="form-control" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Last Name</label>
+              <input type="text" id="lastName" class="form-control" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-primary btn-lg btn-block" id="userSubmit" (click)="registerUser(registerForm)">Create account</button>
+            </div>
+          </form>
 
-                <!-- Email input -->
+
+
+
+          <!-- 
+                                Email input
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
 
-                <!-- Password input -->
+                Password input
                 <div class="form-floating">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
@@ -28,15 +60,18 @@
                 
                 <br>
       
-                <!-- Submit button -->
+                Submit button
                 <div class = "text-center">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
-                </div>
-      
-            </form>
-            </div>
-          </div>
+                    <button class="btn btn-primary btn-lg btn-block" id="userSubmit" (click)="registerUser(registerForm)" [routerLink]="['/login']">Create account</button>
+
+                </div> -->
+
+
+
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
 </main>

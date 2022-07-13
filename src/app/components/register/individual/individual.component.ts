@@ -19,7 +19,7 @@ export class IndividualComponent implements OnInit{
   constructor(private applicantService: ApplicantService) { }
   ngOnInit() {}
   onSubmit(): void {
-    this.submitted = true;
+   this.submitted = true;
     this.applicantService.createApplicant(this.model).subscribe(
       data => {
         console.log(data);

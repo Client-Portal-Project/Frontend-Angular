@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { UtilService } from './util.service';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { User } from 'src/app/classes/user';
+import { UtilService } from './util.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(private httpClient: HttpClient, private util: UtilService, private router: Router) {}
-  endpoint = "user/"
+  endpoint = "/clientportal/user/"
 
   login(email: string, password: string): Observable<any> {
     return this.httpClient.post<any>(this.util.api("/clientportal/user/login"), {
@@ -29,7 +29,7 @@ export class UserService {
   verifyUser(email: string | undefined): Observable<any> {
     return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
   }
-  createUser(user: User): Observable<User> {
+  createUser(user: Object): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
   }
 

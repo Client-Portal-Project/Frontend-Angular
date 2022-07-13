@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class UtilService {
 
-  // private _serverDomain: string = "http://localhost:8080/clientportal/";
+  private _serverDomain: string = "localhost:8080/clientportal/";
 
   jwt: any = sessionStorage.getItem('JWT');
   headers = new HttpHeaders().set('content-type', 'application/json').set('authorization', this.jwt);
