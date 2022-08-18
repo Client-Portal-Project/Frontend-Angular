@@ -29,7 +29,7 @@ export class ProfileFormComponent implements OnInit {
   }
   registerUser(registerForm: FormGroup) {
     if (this.registerForm.get('password')?.value != this.registerForm.get('pwTest')?.value || this.registerForm.get('password')?.value == null)
-      this.router.navigate(['/clientproject/profile-form']);
+      this.router.navigate(['/profile-form']);
     else {
       let sessUser:
         User = new User(
@@ -47,11 +47,10 @@ export class ProfileFormComponent implements OnInit {
 
       this._userService.createUser(userT).subscribe(
         response => {
-          this.router.navigate(['/register']);//  when sucesfulll change uri to register comp.
           console.log("Great success.");
         },
         error => {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/profile-form']);
           console.warn("An error has occurred");
         }
       )

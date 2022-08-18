@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: "upload", component: FileuploaderComponent},
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},
-  { path: "profile", component: ProfileFormComponent},
+  { path: "profile-form", component: ProfileFormComponent},
   { path: "login", component: LoginComponent}
 
 ];
