@@ -12,6 +12,8 @@ import { ApplicantUploadComponent } from './components/applicant-upload/applican
 import { MainComponent } from './components/main/main.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { LoginComponent } from './components/login/login.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: "fileView", component: FileViewerComponent},
   { path: "main", component: MainComponent},
   { path: "profile-form", component: ProfileFormComponent},
-  { path: "login", component: LoginComponent}
+  { path: "login", component: LoginComponent},
+  { path: "forgot-password", component: ForgotPasswordComponent},
+  { path: "reset-password/:email", component: ResetPasswordComponent}
 
 ];
 

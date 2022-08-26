@@ -27,7 +27,7 @@ export class UserService {
   //create login method
 
   verifyUser(email: string | undefined): Observable<any> {
-    return this.httpClient.get<User>(this.util.api(this.endpoint)+email);
+    return this.httpClient.get<User>(this.util.api(this.endpoint)+"by/"+email);
   }
   createUser(user: Object): Observable<User> {
     return this.httpClient.post<User>(this.util.api(this.endpoint), user);
