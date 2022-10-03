@@ -1154,3 +1154,18 @@ java.net.URISyntaxException: Illegal character in path at index 37: file:/C:/Use
 2022-08-23 10:37:13,654 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2022-08-24 10:48:11,645 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2022-08-25 10:35:45,699 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-10-03 11:13:00,976 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-03 11:13:57,907 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-03 11:13:57,910 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-03 11:13:57,914 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-03 11:13:57,935 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-03 11:13:57,938 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-03 11:13:57,938 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-03 11:13:57,938 [Worker-1: Build Project] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-03 11:22:00,355 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-03 11:22:00,356 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-03 11:22:00,360 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-03 11:22:00,369 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-03 11:22:00,372 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-03 11:22:00,372 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-03 11:22:00,372 [Worker-3: Launching Client-Portal - Driver] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
