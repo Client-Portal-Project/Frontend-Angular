@@ -31,6 +31,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
 import { LoginComponent } from './components/login/login.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetemailComponent } from './resetemail/resetemail.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     ProfileFormComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ResetemailComponent
   ],
   imports: [
     BrowserModule,
