@@ -14,6 +14,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ResetemailComponent } from './resetemail/resetemail.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -29,7 +30,9 @@ const routes: Routes = [
   { path: "profile-form", component: ProfileFormComponent},
   { path: "login", component: LoginComponent},
   { path: "forgot-password", component: ForgotPasswordComponent},
-  { path: "reset-password/:email", component: ResetPasswordComponent}
+  { path: "reset-password/:email", component: ResetPasswordComponent},
+  { path: "resetemail", component:ResetemailComponent}
+
 
 ];
 
